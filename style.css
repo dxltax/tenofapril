@@ -7,7 +7,7 @@
 
 body {
   background: radial-gradient(#0f0f0f, #000);
-  font-family: 'Georgia', serif;
+  font-family: 'Patrick Hand', serif;
   color: #f2f2f2;
   overflow-x: hidden;
 }
@@ -74,6 +74,15 @@ body {
   position: relative;
   animation: pageFlip 1s ease;
   border-left: 3px solid #444;
+}
+
+.signature {
+  margin-top: 80px; /* lebih jauh dari puisi */
+  text-align: right;
+  font-style: italic;
+  font-family: 'Six Hands Marker', cursive;
+  font-size: 1.1rem;
+  color: #d0c4ff;
 }
 
 @keyframes pageFlip {
