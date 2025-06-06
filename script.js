@@ -28,8 +28,8 @@ for (let i = 0; i < totalStars; i++) {
 
   stars.push({
     x, y,
-    dx: (math.random() - 0.5) * 1.5,
-    dy: (math.random() - 0.5) * 1.5,
+    dx: (Math.random() - 0.5) * 1.5,
+    dy: (Math.random() - 0.5) * 1.5,
     r: 25,
     color: `hsl(${Math.random()*360}, 70%, 60%)`,
     glowOffset: Math.random() * Math.PI * 2,
