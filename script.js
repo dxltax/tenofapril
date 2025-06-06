@@ -103,6 +103,7 @@ function update() {
 
     if (star.x + star.r > canvas.width || star.x - star.r < 0) star.dx *= -1;
     if (star.y + star.r > canvas.width || star.y - star.r < 0) star.dy *= -1;
+  }
 
   mainOrb.x += mainOrb.dx;
   mainOrb.y += mainOrb.dy;
