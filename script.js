@@ -42,6 +42,15 @@ function draw() {
     ctx.fill();
   }
 
+  const rainbowColor = `hsl(${mainOrb.hue}, 100%, 50%)`;
+
+  ctx.beginPath();
+  ctx.arc(mainOrb.x, mainOrb.y, mainOrb.r, 0, Math.PI * 2);
+  ctx.strokeStyle = rainbowColor;
+  ctx.lineWidth = 6;
+  ctx.shadowBlur = 40;
+  ctx.stroke();
+
   ctx.font = `${mainOrb.r * 0.9}px serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
