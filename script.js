@@ -97,10 +97,12 @@ function draw() {
 
 // Update posisi
 function update() {
-  const t = Date.now();
-  stars.forEach(star => {
-    star.glowOffset += 0.01;
-  });
+  for (let star of starts){
+    star.x += star.dx;
+    star.y += star.dy;
+
+    if (star.x + star.r > canvas.width || star.x - star.r < 0) star.dx *= -1;
+    if (star.y + star.r > canvas.width || star.y - star.r < 0) star.dy *= -1;
 
   mainOrb.x += mainOrb.dx;
   mainOrb.y += mainOrb.dy;
