@@ -97,7 +97,7 @@ function draw() {
 
 // Update posisi
 function update() {
-  for (let star of stars){
+  for (let star of stars) {
     star.x += star.dx;
     star.y += star.dy;
 
