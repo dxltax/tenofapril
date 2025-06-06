@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Broken</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      margin: 0;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+    }
+
+    .running-text {
+      white-space: nowrap;
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      animation: scrollText 12s linear forwards;
+    }
+
+    @keyframes scrollText {
+      0% { left: 100%; }
+      100% { left: -100%; }
+    }
+
+    .next {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: cyan;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="running-text">Do you even know how shattered I am after losing you?</div>
+  <div class="next" onclick="window.location.href='poems.html'">Continue &rarr;</div>
+</body>
+</html>
