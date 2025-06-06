@@ -82,7 +82,7 @@ body {
   font-style: italic;
   font-family: 'Patrick Hand', cursive;
   font-size: 1.1rem;
-  color: inherit;
+  color: #f2f2f2;
 }
 
 @keyframes pageFlip {
