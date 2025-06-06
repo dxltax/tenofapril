@@ -5,9 +5,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let orbs = [];
-const colors = ["#00ff00", "#00bfff", "#0a0a0a"]; // green, blue, black
+const orbColors = ["#00ff00", "#00bfff", "#0a0a0a"];
 
-// Create random orbs
 for (let i = 0; i < 30; i++) {
   orbs.push({
     x: Math.random() * canvas.width,
@@ -15,20 +14,19 @@ for (let i = 0; i < 30; i++) {
     dx: (Math.random() - 0.5) * 2,
     dy: (Math.random() - 0.5) * 2,
     r: Math.random() * 8 + 5,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: orbColors[Math.floor(Math.random() * orbColors.length)],
     glow: false
   });
 }
 
-// Add special main orb
 let mainOrb = {
   x: canvas.width / 2,
   y: canvas.height / 2,
-  dx: 1,
-  dy: 1,
-  r: 25,
+  dx: 1.2,
+  dy: 1.5,
+  r: 40, 
   glow: true,
-  colorIndex: 0,
+  hue: 0, 
   emoji: '🫛'
 };
 
@@ -44,20 +42,10 @@ function draw() {
     ctx.fill();
   }
 
-  // Draw main orb with emoji
-  const mainColor = colors[mainOrb.colorIndex];
-  ctx.beginPath();
-  ctx.arc(mainOrb.x, mainOrb.y, mainOrb.r, 0, Math.PI * 2, false);
-  ctx.fillStyle = mainColor;
-  ctx.shadowColor = mainColor;
-  ctx.shadowBlur = 25;
-  ctx.fill();
-
-  // Draw emoji inside main orb
-  ctx.font = `${mainOrb.r}px serif`;
+  ctx.font = `${mainOrb.r * 0.9}px serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "#fff";
   ctx.fillText(mainOrb.emoji, mainOrb.x, mainOrb.y);
 }
 
@@ -70,21 +58,15 @@ function update() {
     if (orb.y + orb.r > canvas.height || orb.y - orb.r < 0) orb.dy *= -1;
   }
 
-  // Animate main orb movement
   mainOrb.x += mainOrb.dx;
   mainOrb.y += mainOrb.dy;
 
   if (mainOrb.x + mainOrb.r > canvas.width || mainOrb.x - mainOrb.r < 0) mainOrb.dx *= -1;
   if (mainOrb.y + mainOrb.r > canvas.height || mainOrb.y - mainOrb.r < 0) mainOrb.dy *= -1;
 
-  // Change color every 1 second
-  if (!mainOrb.lastColorChange || Date.now() - mainOrb.lastColorChange > 1000) {
-    mainOrb.colorIndex = (mainOrb.colorIndex + 1) % colors.length;
-    mainOrb.lastColorChange = Date.now();
-  }
+  mainOrb.hue = (mainOrb.hue + 1) % 360;
 }
 
-// Detect click on orbs
 canvas.addEventListener('click', function(e) {
   const dist = Math.hypot(e.clientX - mainOrb.x, e.clientY - mainOrb.y);
   if (dist < mainOrb.r) {
