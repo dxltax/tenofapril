@@ -4,100 +4,130 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-let orbs = [];
-const orbColors = ["#00ff00", "#00bfff", "#0a0a0a"];
+// Bintang (12 buah)
+const totalStars = 12;
+let stars = [];
 
-for (let i = 0; i < 30; i++) {
-  orbs.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    dx: (Math.random() - 0.5) * 2,
-    dy: (Math.random() - 0.5) * 2,
-    r: Math.random() * 8 + 5,
-    color: orbColors[Math.floor(Math.random() * orbColors.length)],
-    glow: false
-  });
-}
-
+// Emoji orb 🫛
 let mainOrb = {
   x: canvas.width / 2,
   y: canvas.height / 2,
   dx: 1.2,
   dy: 1.5,
-  r: 40, 
-  glow: true,
-  hue: 0, 
+  r: 60,
+  hue: 0,
   emoji: '🫛'
 };
 
+// Inisialisasi bintang
+for (let i = 0; i < totalStars; i++) {
+  const angle = (Math.PI * 2 / totalStars) * i;
+  const radius = Math.min(canvas.width, canvas.height) / 3;
+  const x = canvas.width / 2 + radius * Math.cos(angle);
+  const y = canvas.height / 2 + radius * Math.sin(angle);
+
+  stars.push({
+    x, y,
+    r: 25,
+    color: `hsl(${Math.random()*360}, 70%, 60%)`,
+    glowOffset: Math.random() * Math.PI * 2,
+    num: i + 1
+  });
+}
+
+// Gambar bintang
+function drawStar(cx, cy, spikes, outerR, innerR, color, glow) {
+  let rot = Math.PI / 2 * 3;
+  let x = cx;
+  let y = cy;
+  let step = Math.PI / spikes;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - outerR);
+  for (let i = 0; i < spikes; i++) {
+    x = cx + Math.cos(rot) * outerR;
+    y = cy + Math.sin(rot) * outerR;
+    ctx.lineTo(x, y);
+    rot += step;
+    x = cx + Math.cos(rot) * innerR;
+    y = cy + Math.sin(rot) * innerR;
+    ctx.lineTo(x, y);
+    rot += step;
+  }
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.shadowColor = glow ? color : 'transparent';
+  ctx.shadowBlur = glow ? 20 : 0;
+  ctx.fill();
+}
+
+// Gambar semua
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  for (let orb of orbs) {
-    ctx.beginPath();
-    ctx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2, false);
-    ctx.fillStyle = orb.glow ? 'white' : orb.color;
-    ctx.shadowColor = orb.glow ? orb.color : 'transparent';
-    ctx.shadowBlur = orb.glow ? 20 : 0;
-    ctx.fill();
-  }
+  // Bintang
+  stars.forEach(star => {
+    const glow = Math.abs(Math.sin(Date.now()/500 + star.glowOffset));
+    const blur = 10 + glow * 20;
+    drawStar(star.x, star.y, 5, star.r, star.r/2, star.color, true);
 
-  const rainbowColor = `hsl(${mainOrb.hue}, 100%, 50%)`;
+    // Nomor di tengah
+    ctx.font = "bold 16px sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillStyle = "#fff";
+    ctx.fillText(star.num, star.x, star.y);
+  });
 
+  // Emoji orb 🫛
+  const rc = mainOrb;
+  const rainbow = `hsl(${rc.hue}, 100%, 50%)`;
   ctx.beginPath();
-  ctx.arc(mainOrb.x, mainOrb.y, mainOrb.r, 0, Math.PI * 2);
-  ctx.strokeStyle = rainbowColor;
-  ctx.lineWidth = 6;
-  ctx.shadowBlur = 40;
-  ctx.stroke();
+  ctx.arc(rc.x, rc.y, rc.r, 0, Math.PI*2);
+  ctx.fillStyle = rainbow;
+  ctx.shadowColor = rainbow;
+  ctx.shadowBlur = 50;
+  ctx.fill();
 
-  ctx.font = `${mainOrb.r * 0.9}px serif`;
+  ctx.font = `${rc.r * 0.9}px serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = "#fff";
-  ctx.fillText(mainOrb.emoji, mainOrb.x, mainOrb.y);
+  ctx.fillText(rc.emoji, rc.x, rc.y);
 }
 
+// Update posisi
 function update() {
-  for (let orb of orbs) {
-    orb.x += orb.dx;
-    orb.y += orb.dy;
-
-    if (orb.x + orb.r > canvas.width || orb.x - orb.r < 0) orb.dx *= -1;
-    if (orb.y + orb.r > canvas.height || orb.y - orb.r < 0) orb.dy *= -1;
-  }
+  const t = Date.now();
+  stars.forEach(star => {
+    star.glowOffset += 0.01;
+  });
 
   mainOrb.x += mainOrb.dx;
   mainOrb.y += mainOrb.dy;
-
   if (mainOrb.x + mainOrb.r > canvas.width || mainOrb.x - mainOrb.r < 0) mainOrb.dx *= -1;
   if (mainOrb.y + mainOrb.r > canvas.height || mainOrb.y - mainOrb.r < 0) mainOrb.dy *= -1;
-
   mainOrb.hue = (mainOrb.hue + 1) % 360;
 }
 
-canvas.addEventListener('click', function(e) {
-  const dist = Math.hypot(e.clientX - mainOrb.x, e.clientY - mainOrb.y);
-  if (dist < mainOrb.r) {
-    window.location.href = "broken.html";
-    return;
-  }
+// Klik event
+canvas.addEventListener('click', e => {
+  const mx = e.clientX, my = e.clientY;
+  const dMain = Math.hypot(mx - mainOrb.x, my - mainOrb.y);
+  if (dMain < mainOrb.r) return void(location.href = 'broken.html');
 
-  for (let orb of orbs) {
-    const dist = Math.hypot(e.clientX - orb.x, e.clientY - orb.y);
-    if (dist < orb.r) {
-      orb.glow = true;
-      setTimeout(() => {
-        window.location.href = "broken.html";
-      }, 300);
-    }
-  }
+  stars.forEach(star => {
+    const d = Math.hypot(mx - star.x, my - star.y);
+    if (d < star.r) location.href = `poem${star.num}.html`;
+  });
 });
 
+// Loop animasi
 function animate() {
   requestAnimationFrame(animate);
   update();
   draw();
 }
-
 animate();
+
+// Resize handling
+window.addEventListener('resize', () => location.reload());
