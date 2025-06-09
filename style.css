@@ -66,3 +66,16 @@ body {
   font-family: 'Pacifico', cursive;
   font-size: 1.3rem;
 }
+
+.chat-image {
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.chat-image img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
