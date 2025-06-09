@@ -100,3 +100,15 @@ p {
     transform: translateY(0);
   }
 }
+
+/* Pastikan halaman bisa diskrol */
+html, body {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Pastikan konten tidak terpotong dan ada ruang di bawah */
+.page {
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
