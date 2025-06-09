@@ -1,84 +1,102 @@
-.page.prolog {
-  position: relative;
-  background: repeating-linear-gradient(
-    #1a1a1a,
-    #1a1a1a 32px,
-    #222 32px,
-    #222 34px
-  );
-  padding: 80px 60px;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.page.prolog::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+body {
+  font-family: 'Georgia', serif;
+  background: #0a0a0a;
+  color: #fff;
+  line-height: 1.8;
+  overflow-x: hidden;
+  position: relative;
+  padding: 2rem;
+}
+
+.overlay {
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
+  position: fixed;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(26, 26, 26, 0), rgba(26, 26, 26, 0.8));
-  pointer-events: none;
-  z-index: 2;
+  z-index: -1;
 }
 
-.page.prolog::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: url("data:image/svg+xml;utf8,<svg width='100%' height='50' xmlns='http://www.w3.org/2000/svg'><path d='M0 40 Q25 10 50 40 T100 40 T150 40 T200 40 T250 40 T300 40 T350 40 T400 40 V50 H0 Z' fill='%23222222'/></svg>") no-repeat top center;
-  background-size: cover;
-  pointer-events: none;
-  z-index: 3;
+.page {
+  max-width: 720px;
+  margin: auto;
+  padding: 3rem 1rem;
 }
 
-.page.prolog h3 {
-  font-size: 1.2rem;
-  font-weight: normal;
+h2, h3 {
   text-align: center;
-  margin-bottom: 40px;
-  color: #f2f2f2;
-  position: relative;
-  z-index: 4;
+  font-weight: normal;
+  letter-spacing: 1px;
 }
 
-.page.prolog p {
-  margin-bottom: 24px;
-  text-indent: 0;
-  color: #eee;
-  position: relative;
-  z-index: 4;
-  line-height: 1.8;
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  opacity: 0.9;
 }
 
 .closing-date {
-  margin-top: 80px;
-  text-align: right;
+  margin-top: 3rem;
+  text-align: center;
   font-style: italic;
-  font-size: 1rem;
-  color: #bbb;
-  position: relative;
-  z-index: 4;
+  color: #aaa;
+  font-size: 0.95rem;
 }
 
 .page-nav {
-  margin-top: 60px;
   display: flex;
   justify-content: space-between;
-  font-size: 0.9em;
+  margin-top: 4rem;
 }
 
 .page-nav a {
-  color: #f2f2f2;
+  color: #8ecae6;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .page-nav a:hover {
-  color: #f2f2f2;
+  text-decoration: underline;
 }
 
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+.delay-6 { animation-delay: 1.2s; }
+.delay-7 { animation-delay: 1.4s; }
+.delay-8 { animation-delay: 1.6s; }
+.delay-9 { animation-delay: 1.8s; }
+.delay-10 { animation-delay: 2s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
