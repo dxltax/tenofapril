@@ -1,33 +1,82 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Prolog — Ten of April</title>
-  <link rel="stylesheet" href="prolog.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Autumn in April - Prolog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="prolog.css">
 </head>
 <body>
-  <div class="overlay"></div>
-  <div class="page prolog">
-    <h2 class="fade-in">PROLOGUE</h2>
-    <h3 class="fade-in delay-1">Ten of April — The Beginning of the End</h3>
 
-    <div class="content">
-      <p class="fade-in delay-2">If I hadn’t replied to your DM that day, maybe I wouldn’t have fallen this deep...</p>
-      <p class="fade-in delay-3">But…<br/>If I had never met you, maybe I would’ve never known what it feels like to be truly worthy of love.</p>
-      <p class="fade-in delay-4">After my last heartbreak, I was completely broken... Until I met you…</p>
-      <p class="fade-in delay-5">How could that happen?<br/>How did you do it?<br/>Was I too easy to fall for you?<br/>Or were you just too perfect to ignore?</p>
-      <p class="fade-in delay-6">Yes, you were that perfect...</p>
-      <p class="fade-in delay-7">I still remember clearly how our random conversations made me never want to stop talking to you...</p>
-      <p class="fade-in delay-8">Even though, in the end, the universe said otherwise.</p>
-    </div>
-
-    <div class="closing-date fade-in delay-9">April 10th, 2025<br/> This is where my suffering began.</div>
-
-    <div class="page-nav fade-in delay-10">
-      <a href="index.html">← Cover</a>
-      <a href="page1.html">Next →</a>
+  <div class="content-container" id="content">
+    <h1 class="title">Autumn in April</h1>
+    <p class="subtitle">You brought autumn in my spring</p>
+    <div class="prolog-text">
+      <p>March arrived like the soft whisper of spring,<br/>
+      its warmth brushing gently against the frost of my heart.<br/>
+      Everything began to bloom,<br/>
+      like hopes unfolding shyly beneath the soft light of a new season.</p>
+      <p>But on the tenth of April,<br/>
+      you came like an autumn wind<br/>
+      in the middle of my still-blooming spring.<br/>
+      My hopes began to fall,<br/>
+      quietly, gracefully,<br/>
+      like leaves drifting down without a sound,<br/>
+      touching the ground before I could hold them close.</p>
+      <p>I never asked for the beauty of falling.<br/>
+      I only wished the leaves would stay,<br/>
+      clinging tightly to the branches,<br/>
+      so I could rest a little longer<br/>
+      beneath the shade of the promises we planted.</p>
+      <p>Why did you bring autumn into my spring?<br/>
+      Couldn’t you let one season last<br/>
+      until I was ready to let it go?</p>
+      <p>At the very least…<br/>
+      let me breathe in my spring<br/>
+      before it all turns into a goodbye I wasn’t ready for.</p>
+      <p>And maybe, just maybe… this is how it all began.</p>
     </div>
   </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <div class="nav-links">
+    <a href="cover.html">Back</a>
+    <a href="cover.html" class="center-link">Cover</a>
+    <a href="chapter1.html">Next</a>
+  </div>
+
+  <div class="copyright">@whatsup_del</div>
+  <div class="leaves"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    // Daun jatuh 🍁
+    const leafContainer = document.querySelector('.leaves');
+    for (let i = 0; i < 50; i++) {
+      const leaf = document.createElement('span');
+      leaf.textContent = '🍁';
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.fontSize = 16 + Math.random() * 24 + 'px';
+      leaf.style.animationDuration = 6 + Math.random() * 6 + 's';
+      leaf.style.animationDelay = Math.random() * 8 + 's';
+      leafContainer.appendChild(leaf);
+    }
+
+    // Save as JPEG
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.body, {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-prolog.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
 </body>
 </html>
