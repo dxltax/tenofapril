@@ -78,9 +78,9 @@ p {
 
 /* Animations */
 .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .delay-1 { animation-delay: 0.2s; }
