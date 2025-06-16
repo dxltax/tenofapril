@@ -64,7 +64,8 @@ html, body {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.9;
+  transform: rotate(0deg);
 }
 
 @keyframes fall {
