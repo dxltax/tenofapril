@@ -40,19 +40,19 @@
     // generate falling leaves
     const leafContainer = document.querySelector('.leaves');
 
-    for (let i = 0; i < 25; i++) {
-      const leaf = document.createElement('img');
-      leaf.src = 'https://cdn-icons-png.flaticon.com/512/415/415733.png';
-      leaf.classList.add('leaf');
+  for (let i = 0; i < 30; i++) {
+    const leaf = document.createElement('span');
+    leaf.textContent = '🍁';
+    leaf.classList.add('leaf');
 
-      leaf.style.left = Math.random() * 100 + 'vw';
-      leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
-      leaf.style.animationDelay = Math.random() * 10 + 's';
-      leaf.style.width = 24 + Math.random() * 20 + 'px';
+    leaf.style.left = Math.random() * 100 + 'vw';
+    leaf.style.fontSize = 18 + Math.random() * 16 + 'px';
+    leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
+    leaf.style.animationDelay = Math.random() * 10 + 's';
 
-      leafContainer.appendChild(leaf);
-    }
-  </script>
+    leafContainer.appendChild(leaf);
+  }
+</script>
 
 </body>
 </html>
