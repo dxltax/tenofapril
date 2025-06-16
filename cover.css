@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ten of April - eBook Cover</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cover.css">
+</head>
+<body>
+
+  <div class="cover">
+    <h1 class="title">Ten of April</h1>
+    <p class="subtitle">The Beginning of the End</p>
+    <p class="copyright">@whatsup_del</p>
+  </div>
+
+  <div class="leaves"></div>
+
+  <!-- Loading message overlay -->
+  <div class="message" id="message">
+    <p>Are you okay?<br/>
+    Whoever you are, if you're reading this, perhaps we're in the same phase.<br/>
+    Stay strong, let’s hold each other tight to ease the pain.</p>
+  </div>
+
+  <script>
+    document.body.addEventListener('click', () => {
+      const msg = document.getElementById('message');
+      msg.style.display = 'flex';
+
+      setTimeout(() => {
+        window.location.href = 'prolog.html';
+      }, 5000); // tampilkan pesan selama 5 detik
+    });
+  </script>
+</body>
+</html>
