@@ -8,15 +8,31 @@
   <link rel="stylesheet" href="cover.css">
 </head>
 <body>
+
   <div class="cover">
     <h1 class="title">Ten of April</h1>
     <p class="subtitle">The Beginning of the End</p>
     <p class="copyright">@whatsup_del</p>
   </div>
 
-  <!-- Falling leaves container -->
   <div class="leaves"></div>
 
-  <!-- Optional: Soundtrack or music (can be added later if needed) -->
+  <!-- Loading message overlay -->
+  <div class="message" id="message">
+    <p>Are you okay?<br/>
+    Whoever you are, if you're reading this, perhaps we're in the same phase.<br/>
+    Stay strong, let’s hold each other tight to ease the pain.</p>
+  </div>
+
+  <script>
+    document.body.addEventListener('click', () => {
+      const msg = document.getElementById('message');
+      msg.style.display = 'flex';
+
+      setTimeout(() => {
+        window.location.href = 'prolog.html';
+      }, 5000); // tampilkan pesan selama 5 detik
+    });
+  </script>
 </body>
 </html>
