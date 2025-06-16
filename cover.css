@@ -1,38 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ten of April - eBook Cover</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cover.css">
-</head>
-<body>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <div class="cover">
-    <h1 class="title">Ten of April</h1>
-    <p class="subtitle">The Beginning of the End</p>
-    <p class="copyright">@whatsup_del</p>
-  </div>
+body, html {
+  height: 100%;
+  font-family: 'Libre Baskerville', serif;
+  background: linear-gradient(to bottom, #e3e8f0, #cdd9e5, #b2c7d8);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
 
-  <div class="leaves"></div>
+.cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #2a2e35;
+  padding: 2rem;
+  z-index: 2;
+}
 
-  <!-- Loading message overlay -->
-  <div class="message" id="message">
-    <p>Are you okay?<br/>
-    Whoever you are, if you're reading this, perhaps we're in the same phase.<br/>
-    Stay strong, let’s hold each other tight to ease the pain.</p>
-  </div>
+.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
 
-  <script>
-    document.body.addEventListener('click', () => {
-      const msg = document.getElementById('message');
-      msg.style.display = 'flex';
+.subtitle {
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: #445069;
+}
 
-      setTimeout(() => {
-        window.location.href = 'prolog.html';
-      }, 5000); // tampilkan pesan selama 5 detik
-    });
-  </script>
-</body>
-</html>
+.copyright {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: #5a6675;
+}
+
+/* Falling leaves */
+.leaves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.leaves::before, .leaves::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  width: 20px;
+  height: 20px;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/4273/4273789.png');
+  background-size: cover;
+  opacity: 0.6;
+  animation: fall linear infinite;
+}
+
+.leaves::before {
+  animation-duration: 8s;
+  left: 10%;
+}
+
+.leaves::after {
+  animation-duration: 10s;
+  left: 70%;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Romantic message */
+.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(236, 240, 243, 0.95);
+  color: #3c4b5e;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  z-index: 999;
+  line-height: 1.6;
+  font-style: italic;
+}
