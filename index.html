@@ -12,27 +12,47 @@
   <div class="cover">
     <h1 class="title">Ten of April</h1>
     <p class="subtitle">The Beginning of the End</p>
-    <p class="copyright">@whatsup_del</p>
   </div>
 
+  <div class="copyright">@whatsup_del</div>
   <div class="leaves"></div>
 
-  <!-- Loading message overlay -->
   <div class="message" id="message">
-    <p>Are you okay?<br/>
-    Whoever you are, if you're reading this, perhaps we're in the same phase.<br/>
-    Stay strong, let’s hold each other tight to ease the pain.</p>
+    <p>
+      Are you okay?<br/>
+      Whoever you are, if you're reading this,<br/>
+      perhaps we're in the same phase.<br/>
+      Stay strong, let’s hold each other tight to ease the pain.
+    </p>
   </div>
 
   <script>
+    // romantic message + delay redirect
     document.body.addEventListener('click', () => {
       const msg = document.getElementById('message');
       msg.style.display = 'flex';
 
       setTimeout(() => {
         window.location.href = 'prolog.html';
-      }, 5000); // tampilkan pesan selama 5 detik
+      }, 5000);
     });
+
+    // generate falling leaves
+    const leafContainer = document.querySelector('.leaves');
+
+    for (let i = 0; i < 25; i++) {
+      const leaf = document.createElement('img');
+      leaf.src = 'https://cdn-icons-png.flaticon.com/512/415/415733.png';
+      leaf.classList.add('leaf');
+
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
+      leaf.style.animationDelay = Math.random() * 10 + 's';
+      leaf.style.width = 24 + Math.random() * 20 + 'px';
+
+      leafContainer.appendChild(leaf);
+    }
   </script>
+
 </body>
 </html>
