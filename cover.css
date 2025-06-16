@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
+  background: linear-gradient(to bottom, #fff3e6, #f7d6aa, #f4a261);
   font-family: 'Libre Baskerville', serif;
-  background: linear-gradient(to bottom, #e3e8f0, #cdd9e5, #b2c7d8);
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -19,14 +19,14 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: #2a2e35;
-  padding: 2rem;
+  color: #5e3010;
   z-index: 2;
 }
 
 .title {
   font-family: 'Great Vibes', cursive;
   font-size: 4rem;
+  color: #9e4f21;
   margin-bottom: 0.5rem;
 }
 
@@ -34,19 +34,19 @@ body, html {
   font-size: 1.2rem;
   font-style: italic;
   letter-spacing: 1px;
-  color: #445069;
+  color: #6e3b1e;
 }
 
 .copyright {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: fixed;
+  bottom: 12px;
+  width: 100%;
+  text-align: center;
   font-size: 0.9rem;
-  color: #5a6675;
+  color: #7b3e19;
+  z-index: 2;
 }
 
-/* Falling leaves */
 .leaves {
   position: absolute;
   top: 0;
@@ -57,46 +57,35 @@ body, html {
   z-index: 1;
 }
 
-.leaves::before, .leaves::after {
-  content: '';
+.leaf {
   position: absolute;
-  top: -50px;
-  width: 20px;
-  height: 20px;
-  background-image: url('https://cdn-icons-png.flaticon.com/512/4273/4273789.png');
-  background-size: cover;
-  opacity: 0.6;
-  animation: fall linear infinite;
-}
-
-.leaves::before {
-  animation-duration: 8s;
-  left: 10%;
-}
-
-.leaves::after {
-  animation-duration: 10s;
-  left: 70%;
+  top: -40px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(-50px) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
   }
 }
 
-/* Romantic message */
 .message {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(236, 240, 243, 0.95);
-  color: #3c4b5e;
+  background: rgba(255, 244, 230, 0.95);
+  color: #5a2e0d;
   display: none;
   align-items: center;
   justify-content: center;
