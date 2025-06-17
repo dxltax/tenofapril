@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>The Season You Brought</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css">
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title">The Season You Brought</h1>
+
+    <div class="book-content center-text">
+      <p>I still remember it clearly,<br/>
+      how God brought you into my life in the simplest way.<br/>
+      A brief introduction, a few lighthearted conversations,<br/>
+      and somehow… you slowly became part of my days.<br/>
+      Something began to grow between us,<br/>
+      like tiny buds at the end of bare branches,<br/>
+      as if we were two seasons quietly meeting.</p>
+
+      <p>Ironically, I was in one of my most fragile phases back then,<br/>
+      heartbroken, still aching from wounds that hadn’t healed.<br/>
+      And yet, your presence felt like a warm breeze slipping through the chill.<br/>
+      Soothing.<br/>
+      For a while, I even forgot I was ever in pain.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="prolog.html">Back</a>
+      <a href="cover.html" class="center-link">Cover</a>
+      <a href="chapter1b.html">Next</a>
+    </div>
+
+    <div class="copyright">@whatsup_del</div>
+    <div class="page-number">2</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page2.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
