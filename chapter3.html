@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Still Awake in The Season You Left</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+      <h1 class="book-title">Still Awake in The Season You Left</h1>
+
+     <div class="book-content center-text">
+      <p>It’s 2 AM,<br/>
+      and I’m still awake,<br/>
+      just like the countless nights before.</p>
+
+      <p>Outside, the wind brushes past the windows,<br/>
+      whispering like the voice I once knew by heart.<br/>
+      The air is colder now,<br/>
+      not from the season alone,<br/>
+      but from your absence that lingers like a fog I can’t outrun.</p>
+
+      <p>I still wait for your name to appear on my screen,<br/>
+      like a leaf that refuses to let go of its branch,<br/>
+      hoping, aching,<br/>
+      against the pull of gravity.</p>
+
+      <p>I wish you were still the last soul I spoke to before sleep,<br/>
+      and the first light I opened my eyes to at dawn.</p>
+
+      <p>But how long can leaves cling<br/>
+      when the wind has made up its mind?</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter2b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter3b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">7</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page6.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
