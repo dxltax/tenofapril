@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  background: linear-gradient(to bottom right, #fdf6e3, #f7d6aa);
+  font-family: 'Libre Baskerville', serif;
+  overflow-x: hidden;
+  padding: 0;
+}
+.book-page {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 60px 50px;
+  background-color: #fffaf3;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(150, 90, 40, 0.3);
+  position: relative;
+}
+.book-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  text-align: center;
+  color: #a64b2a;
+  margin-bottom: 2rem;
+}
+.book-content {
+  color: #4a2e1a;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.book-content p {
+  margin-bottom: 1.5rem;
+}
+.center-text {
+  text-align: center;
+}
+.nav-links {
+  margin-top: 40px;
+  text-align: center;
+}
+.nav-links a {
+  display: inline-block;
+  margin: 0 16px;
+  padding: 8px 18px;
+  background-color: #a64b2a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  transition: background-color 0.3s;
+}
+.nav-links a:hover {
+  background-color: #7d3c1f;
+}
+.center-link {
+  font-weight: bold;
+}
+#save {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: #a64b2a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 999;
+}
+#save:hover {
+  background-color: #7d3c1f;
+}
+copyright {
+  position: fixed;
+  bottom: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #7b3e19;
+}
+.page-number {
+  position: fixed;
+  bottom: 12px;
+  right: 20px;
+  font-size: 0.85rem;
+  color: #7b3e19;
+}
