@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Warmth That Faded with the Leaves</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content">
+      <h1 class="book-title">The Warmth That Faded with the Leaves</h1>
+
+      <p>I still remember,<br/>
+      how your gaze made me blush like the first hint of sun after a long cold.<br/>
+      How your smile felt like sunlight slipping through yellowing leaves.<br/>
+      How your voice…<br/>
+      gentle and steady,<br/>
+      felt like the wind that rustles softly through a quiet afternoon.</p>
+
+      <p>I remember how we talked until 2 AM,<br/>
+      and how by 4 AM.,<br/>
+      I was already longing for you again.<br/>
+      Like trees aching for leaves they’d just begun to lose.</p>
+
+      <p>I still remember,<br/>
+      the sound of your messages,<br/>
+      how they rang differently from everyone else’s.<br/>
+      How I’d open them even in the middle of the busiest days,<br/>
+      like pausing under a tree just to watch the light fall through the branches.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter1b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter2b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">4</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page4.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
