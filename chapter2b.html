@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Warmth That Faded with the Leaves - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+      <p>Everything about you once made my world brighter.<br/>
+      Your presence lit up the early hours of autumn,<br/>
+      a warmth that whispered,<br/>
+      “Stay a little longer.”</p>
+
+      <div class="leaf-divider">🍂</div>
+
+      <p>And I fell.<br/>
+      Slowly, deeply.<br/>
+      With every kind gesture,<br/>
+      with every reply you sent between your busy hours.<br/>
+      You made me feel seen,<br/>
+      held,<br/>
+      important.</p>
+
+      <div class="leaf-divider">🍂</div>
+
+      <p>But I also remember the silence that followed.<br/>
+      How your warmth faded,<br/>
+      like the last golden leaves drifting from the trees.<br/>
+      I began to suffocate in the emptiness you left behind.<br/>
+      Like the air had thinned.<br/>
+      Like nothing could bloom again.</p>
+
+      <div class="leaf-divider">🍂</div>
+
+      <p>And some mornings,<br/>
+      I wished I wouldn’t wake up,<br/>
+      because each sunrise only reminded me<br/>
+      that you were no longer here<br/>
+      to color the world like you used to.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter2.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter3.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">5</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page5.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
