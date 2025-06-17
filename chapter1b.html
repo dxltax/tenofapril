@@ -45,4 +45,31 @@
   </div>
 
   <!-- Navigasi, copyright, save button tetap sama -->
-</div>
+<div class="nav-links">
+      <a href="chapter1.html">Back</a>
+      <a href="cover.html" class="center-link">Cover</a>
+      <a href="chapter2.html">Next</a>
+    </div>
+
+    <div class="copyright">@whatsup_del</div>
+    <div class="page-number">3</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page3.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
