@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="cover.css">
 </head>
 <body>
+  <div id="openInBrowserNotice" style="display: none; background: #fffbdd; color: #5c4424; padding: 1rem; text-align: center; font-family: sans-serif; font-size: 0.9rem; border-bottom: 1px solid #e2c385;">
+  ⚠️ For the best experience, <strong>please open this page in your browser</strong>.
+</div>
 
   <div class="cover">
     <h1 class="title">Autumn in April</h1>
@@ -51,6 +54,15 @@
     leaf.style.animationDelay = Math.random() * 10 + 's';
 
     leafContainer.appendChild(leaf);
+  }
+    
+const isInstagram = navigator.userAgent.includes("Instagram");
+
+  if (isInstagram) {
+    const notice = document.getElementById("openInBrowserNotice");
+    if (notice) {
+      notice.style.display = "block";
+    }
   }
 </script>
 
