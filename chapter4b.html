@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p>Because most days,<br/>
+      I still think you’re the one I miss the most.<br/>
+      The one whose brief warmth<br/>
+      gave me strength through my longest nights.<br/>
+      Like the early bloom of spring,<br/>
+      you made me believe<br/>
+      I could start again.</p>
+
+      <p class="leaf">🍂</p>
+
+      <p>Most days,<br/>
+      I still wait for you,<br/>
+      as if seasons could turn backward,<br/>
+      as if the trees would bear leaves again<br/>
+      just because I kept standing still.</p>
+
+      <p class="leaf">🍂</p>
+
+      <p>And even now,<br/>
+      after all the silence,<br/>
+      after being left like the last leaf<br/>
+      clinging to a bare branch…</p>
+
+      <p class="leaf">🍂</p>
+
+      <p>I know this,<br/>
+      If you returned<br/>
+      on another autumn wind,<br/>
+      I would still open the door.</p>
+
+      <p class="leaf">🍂</p>
+
+      <p>Even if I knew<br/>
+      you’d bring the fall with you again.<br/>
+      Even if loving you<br/>
+      meant losing myself once more.</p>
+
+      <p class="leaf">🍂</p>
+
+      <p>That’s how deeply I loved you.<br/>
+      And how hopelessly<br/>
+      I still do.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter4.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter5.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">10</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
