@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Page Locked</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Libre Baskerville', serif;
+      background: linear-gradient(to bottom, #402218, #865439);
+      color: #f4e9dc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .lock-card {
+      background-color: #f4e9dc;
+      color: #4e342e;
+      border-radius: 15px;
+      padding: 2rem 2.5rem;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .lock-card::before,
+    .lock-card::after {
+      content: "🍂";
+      font-size: 2rem;
+      position: absolute;
+      top: -1.5rem;
+    }
+
+    .lock-card::before {
+      left: -1rem;
+    }
+
+    .lock-card::after {
+      right: -1rem;
+    }
+
+    .lock-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .lock-message {
+      font-size: 1rem;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .autumn-line {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.3rem;
+      color: #d8874a;
+      margin-top: 1.5rem;
+    }
+
+    .nav-links {
+      margin-top: 2.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #f4e9dc;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1.2rem;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .copyright {
+      position: absolute;
+      bottom: 1.2rem;
+      font-size: 0.8rem;
+      color: #e0c2a2;
+    }
+
+    .page-number {
+      position: absolute;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      font-size: 0.8rem;
+      color: #e0c2a2;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="lock-card">
+    <div class="lock-icon">🔒</div>
+    <h2>This Chapter is Locked</h2>
+    <p class="lock-message">
+      This part of the story is still being written.<br/>
+      Thank you for waiting with patience and love.
+    </p>
+    <div class="autumn-line">🍂 Like leaves that fall slowly, the next pages will come. 🍂</div>
+  </div>
+
+  <div class="nav-links">
+    <a href="chapter4b.html">Back</a>
+    <a href="index.html">Cover</a>
+  </div>
+
+</body>
+</html>
