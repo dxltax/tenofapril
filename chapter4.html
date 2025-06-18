@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title">The Season I Still Let In</h1>
+
+    <div class="book-content center-text">
+
+      <p>Sometimes,<br/>
+      I feel unworthy of missing you,<br/>
+      as if longing for you<br/>
+      was a season I was never meant to live through.</p>
+
+      <p>I still wonder...<br/>
+      was the warmth you gave me real,<br/>
+      or just the golden haze of autumn<br/>
+      tricking me into thinking<br/>
+      it was still spring?</p>
+
+      <p>There are moments<br/>
+      I want to hate you,<br/>
+      for turning me into a character<br/>
+      in a story I didn’t ask to be written into,<br/>
+      for handing me promises<br/>
+      that faded like petals<br/>
+      in the quiet end of bloom.</p>
+
+      <p>Sometimes,<br/>
+      you feel like the wind,<br/>
+      cold, sudden,<br/>
+      sweeping through my garden<br/>
+      before it even had the chance to grow.<br/>
+      You didn’t just leave,<br/>
+      you passed through,<br/>
+      and took the light with you.</p>
+
+      <p>But those thoughts drift like fallen leaves.<br/>
+      They don’t stay long.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter3b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter4b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">9</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  </script>
+
+</body>
+</html>
