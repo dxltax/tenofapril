@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> You used to trace me with longing <br/>
+in hushed, forbidden ways, <br/>
+exchanging secrets beneath the surface <br/>
+like leaves pressed between pages <br/>
+we never meant to close. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Now, my body feels like a forest in late <br/> November…<br/>
+bare, silent, <br/>
+still waiting for your hands <br/>
+like trees waiting for a spring <br/>
+they know will not return. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Even the fog outside seems to know your name. <br/>
+It lingers. <br/>
+Just like you. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> The universe feels like it’s conspiring <br/>
+to keep you etched into every falling thing, <br/>
+every amber leaf that spins to the ground, <br/>
+every chill that steals warmth from my breath. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> So tell me, <br/>
+how do I find peace <br/>
+when even the season won’t let me forget you? </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> I am the tree you left behind, <br/>
+and everything in me <br/>
+is still reaching for the wind <br/>
+that once called me beautiful. </p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter6.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">14</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
