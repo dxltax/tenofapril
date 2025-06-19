@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> Did the Leaves Ever Whisper My Name?</h1>
+
+    <div class="book-content center-text">
+
+      <p> Since the day you became autumn in my life,<br/>
+      I’ve been asking questions the wind won’t answer.</p>
+
+      <p>I still wonder...<br/>
+      was the warmth you gave me real,<br/>
+      or just the golden haze of autumn<br/>
+      tricking me into thinking<br/>
+      it was still spring?</p>
+
+      <p> Did you ever wonder how I’d fall<br/>
+      I want to hate you,<br/>
+      after you let go?<br/>
+How quietly I’d shatter,<br/>
+like brittle leaves beneath footsteps<br/>
+      that never turned back?</p>
+
+      <p> Since you left, <br/>
+I’ve watched the days grow colder. <br/>
+I’ve whispered into the spaces <br/>
+you used to fill. <br/>
+Did you ever feel even a flicker of guilt <br/>
+as you drifted away <br/>
+like a season that never said goodbye?</p>
+
+      <p>Did your chest ache <br/>
+when the skies turned grey, <br/>
+the way mine does <br/>
+every time it rains without warning?</p>
+
+  <p> I am withering slowly, <br/>
+like a tree stripped bare <br/>
+long before the frost has come. <br/>
+I cry in the hush of midnight <br/>
+and again beneath the pale morning sun, <br/>
+but you…<br/>
+did you feel the same chill <br/>
+settle into your bones?</p>
+
+ <p> No... <br/>
+I hope not.</p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter3b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter5b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">11</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
