@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> Even if I am the forest after the fall, <br/>
+I still hope your days are full of warmth. <br/>
+Even if I am nothing but broken branches, <br/>
+I still hope the sun touches your skin kindly.</p>
+
+      <p class="leaf">🍂</p>
+
+      <p> But still, <br/>
+some small part of me <br/>
+wishes you’d turn around <br/>
+just once, <br/>
+and say, <br/>
+“I loved you... <br/>
+but I had to go.”</p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Let me believe <br/>
+your leaving was not the absence of love, <br/>
+but the consequence of timing, <br/>
+like leaves that fall <br/>
+not because they want to, <br/>
+but because the season told them to.</p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter5.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">12</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
