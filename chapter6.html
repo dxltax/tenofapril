@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> I Am the Tree You Left Behind </h1>
+
+    <div class="book-content center-text">
+
+      <p> How can I forget you <br/>
+when the world around me <br/>
+still wears your memory like a season it won’t shed? </p>
+
+      <p> Everywhere I turn, <br/>
+you’re there, <br/>
+in the hush of golden leaves brushing the pavement, <br/>
+in the way the wind curls around my skin <br/>
+like it once curled around your words. </p>
+
+      <p> Even the mirror feels heavy now. <br/>
+I no longer dare to look at my reflection, <br/>
+not my brows, <br/>
+not my eyes, <br/>
+not the curve of my collarbone <br/>
+you once admired like the outline of early light <br/>
+on frost-kissed windows. </p>
+
+      <p> Tell me, <br/>
+do those shadows no longer stir something in you? <br/>
+Do the places you once touched <br/>
+mean nothing now that they’ve grown cold? </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter5b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter6b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">13</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
