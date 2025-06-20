@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> A Body the Autumn Still Remembers </h1>
+
+    <div class="book-content center-text">
+
+      <p> Why does it still feel like this? <br/>
+Like I’m breathing through fog…<br/>
+slow, heavy, and cold? </p>
+
+      <p> Even when I drown myself in distractions, <br/>
+you rise above them all, <br/>
+like fallen leaves that refuse to be swept away. <br/>
+You’ve become the echo behind every noise, <br/>
+the shadow behind every corner. <br/>
+As if the universe has stitched your name <br/>
+into every thread of my silence. </p>
+
+      <p> And what hurts the most, <br/>
+even your old praises have become wounds. <br/>
+Once, they made me light. <br/>
+Now, they weigh me down. </p>
+
+      <p> I avoid the mirror, <br/>
+not because I hate what I see, <br/>
+but because I see you in the outline of my eyebrows, <br/>
+in the shape of my eyes, <br/>
+in the way my collarbones catch the light. <br/>
+You used to love them. </p>
+
+<p> Do you still? </p>
+
+<p> Or have they lost their magic <br/>
+now that they no longer belong to your gaze? </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter6.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter7b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">14</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
