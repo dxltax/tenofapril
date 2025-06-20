@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+
+ <style>
+    .highlight-name {
+      color: #8B0000;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #fceee9;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> I miss you <br/>
+in the quietest ways, <br/>
+in the rustle of leaves that sound like your name, <br/>
+in the gray skies that press on my chest, <br/>
+in the chill of mornings <br/>
+that never quite warm. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> I miss you <br/>
+like autumn misses the green <br/>
+it knows it must lose. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> I miss you <br/>
+like the earth misses the sun <br/>
+when it's fading. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> I miss you, <span class="highlight-name">Edamame</span>,<br/>
+        in ways no silence can explain </p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter8.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">17</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
