@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> What do I do <br/>
+with a body that remembers your touch <br/>
+better than it remembers its own worth? </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> I feel like a tree stripped bare too soon…<br/>
+still standing, <br/>
+but no longer proud. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> This skin, <br/>
+this face, <br/>
+this frame of me, <br/>
+still carries the warmth of your old words, <br/>
+but it’s fading, <br/>
+like golden leaves <br/>
+turning brittle in the wind. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> I am trapped in an autumn <br/>
+you left behind in me. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> And I don’t know <br/>
+how to bloom again <br/>
+without the sunlight of your eyes. </p>
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter7.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">15</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
