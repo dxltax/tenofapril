@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> Still, I’d Wait for You in the Falling </h1>
+
+    <div class="book-content center-text">
+
+     <p>There is no voice loud enough, <br/>
+no wisdom kind enough, <br/>
+to pull me out of the madness <br/>
+that loving you became.</p>
+
+<p>Even if you drift in and out <br/>
+like the changing winds of autumn, <br/>
+uncertain, <br/>
+untouchable— <br/>
+as if I were nothing more than a leaf caught in your passing, <br/>
+trust me… <br/>
+I’d still be standing here, <br/>
+arms open, <br/>
+a tree stripped bare, <br/>
+begging the wind to return <br/>
+even if it only ever takes.</p>
+
+<p>No matter how deep the ache, <br/>
+you are the wound <br/>
+I’d let reopen, <br/>
+again and again, <br/>
+the one I cradle like brittle leaves <br/>
+I refuse to let go.</p>
+
+<p>And if, by some twist of fate, <br/>
+your eyes ever rest upon these words, <br/>
+know this…</p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter7b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter8b.html">Next</a>
+    </div>
+
+    <div class="copyright">@dxltax</div>
+    <div class="page-number">16</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
