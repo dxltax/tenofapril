@@ -208,11 +208,11 @@
   <div><span id="postCount">2</span>Posts</div>
   <div style="display: flex; flex-direction: column; align-items: center;">
   <div>
-    <span id="followersCount">0</span> Followers
+    <span id="followersCount">Only Me 🔒</span> Followers
   </div>
   <button id="followBtn" class="menu-btn" style="margin-top: 0.3rem; font-size: 0.75rem;">Follow</button>
 </div>
-  <div><span id="viewersCount">0</span>Viewers</div>
+  <div><span id="viewersCount">Only Me 🔒</span>Viewers</div>
 </div>
 
     <div class="menu-bar">
@@ -301,13 +301,6 @@
   const database = firebase.database();
 const statsRef = database.ref('stats');
 
-statsRef.on('value', (snapshot) => {
-  const data = snapshot.val();
-  if (data) {
-    document.getElementById('followersCount').textContent = data.followers ?? 0;
-    document.getElementById('viewersCount').textContent = data.viewers ?? 0;
-  }
-});
 </script>
   <script>
   const today = new Date().toISOString().slice(0, 10);
