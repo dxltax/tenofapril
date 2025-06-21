@@ -206,7 +206,12 @@
 
     <div class="stats">
   <div><span id="postCount">2</span>Posts</div>
-  <div><span id="followersCount">0</span>Followers</div>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+  <div>
+    <span id="followersCount">0</span> Followers
+  </div>
+  <button id="followBtn" class="menu-btn" style="margin-top: 0.3rem; font-size: 0.75rem;">Follow</button>
+</div>
   <div><span id="viewersCount">0</span>Viewers</div>
 </div>
 
@@ -303,6 +308,33 @@ statsRef.on('value', (snapshot) => {
     document.getElementById('viewersCount').textContent = data.viewers ?? 0;
   }
 });
+</script>
+  <script>
+  const today = new Date().toISOString().slice(0, 10);
+
+  // VIEW COUNTER (Naik 1x per hari per device)
+  if (localStorage.getItem('viewedDate') !== today) {
+    const viewersRef = firebase.database().ref('stats/viewers');
+    viewersRef.transaction(current => (current || 0) + 1);
+    localStorage.setItem('viewedDate', today);
+  }
+
+  // FOLLOW BUTTON
+  const followBtn = document.getElementById('followBtn');
+  const hasFollowed = localStorage.getItem('hasFollowed');
+
+  if (hasFollowed) {
+    followBtn.disabled = true;
+    followBtn.textContent = "Following";
+  }
+
+  followBtn?.addEventListener('click', () => {
+    const followersRef = firebase.database().ref('stats/followers');
+    followersRef.transaction(current => (current || 0) + 1);
+    localStorage.setItem('hasFollowed', 'true');
+    followBtn.disabled = true;
+    followBtn.textContent = "Following";
+  });
 </script>
 </body>
 </html>
