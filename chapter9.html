@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> Stay Until the Last Color Fades </h1>
+
+    <div class="book-content center-text">
+
+     <p> I knew. <br/>
+I always knew, <br/>
+that one day, <br/>
+the season would take you from me. </p>
+
+<p> I knew the wind would change, <br/> that our paths would scatter like leaves beneath it. <br/> I knew <br/> our red thread was frayed from the start, <br/> never truly tied, <br/> just wrapped loosely <br/> around something fleeting. <br/>
+What bloomed between us <br/> was always meant to wither.</p>
+
+<p> Still, <br/>
+wasn’t staying a choice <br/>
+we could have made? </p>
+
+<p> Couldn’t we have walked through the fall together, <br/>
+just a little longer, <br/>
+before winter pulled you away? </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter8b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter9b.html">Next</a>
+    </div>
+
+    <div class="copyright"> ⸻ ten of april </div>
+    <div class="page-number">18</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
