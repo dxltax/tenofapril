@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+
+ <style>
+    .highlight-name {
+      color: #8B0000;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #fceee9;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> Stay…<br/>
+as the last warmth <br/>
+beneath this fading sky. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Stay…<br/>
+as the echo in the trees <br/>
+before they stand bare. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Stay…<br/>
+as the golden leaf that clings, <br/>
+even as its brothers fall. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> Because if you vanish now, <br/>
+if you drift like the rest, <br/>
+where will I go, <br/>
+when even the trees have forgotten how to hold me? </p>
+
+<p class="leaf">🍂</p>
+
+      <p> You were never mine to keep. <br/>
+But if you must go, <br/>
+at least wait <br/>
+until the last color fades, <br/>
+until I am ready <br/>
+to stand in the cold <br/>
+without you. </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter9.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright"> ⸻ ten of april </div>
+    <div class="page-number">19</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
