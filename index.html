@@ -1,164 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>dxltax - Book Collection</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <title>dxltax | Library of Hearts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
+    /* Reset dasar & font styling */
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      margin: 0;
-      background-color: #121212;
+      background: #151515;
+      color: #eee;
       font-family: 'Libre Baskerville', serif;
-      color: #f4f4f4;
+      line-height:1.5;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
     }
+    a { text-decoration:none; color:inherit; }
+
+    /* Header Fixed */
     header {
-      padding: 2rem;
-      text-align: center;
-      background-color: #1e1e1e;
-      border-bottom: 1px solid #333;
+      position:sticky; top:0;
+      background:#111;
+      padding:1rem 2rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      z-index:100;
+      border-bottom:1px solid #333;
     }
-    .nav {
-      position: sticky;
-      top: 0;
-      background: #181818;
-      display: flex;
-      justify-content: center;
-      padding: 1rem;
-      z-index: 1000;
-      border-bottom: 1px solid #2c2c2c;
+    header h1 {
+      font-family:'Playfair Display', serif;
+      font-size:1.8rem;
+      color:#fdf0e3;
     }
-    .nav button {
-      background: none;
-      border: none;
-      color: #aaa;
-      margin: 0 1rem;
-      font-size: 1rem;
-      cursor: pointer;
+    nav button {
+      background:none;
+      border:none;
+      color:#aaa;
+      margin-left:1rem;
+      font-size:1rem;
+      cursor:pointer;
+      padding:0.25rem;
+      transition:color 0.3s, border-bottom 0.3s;
     }
-    .nav button.active,
-    .nav button:hover {
-      color: #fff;
-      border-bottom: 2px solid #fff;
+    nav button.active,
+    nav button:hover {
+      color:#fdf0e3;
+      border-bottom:2px solid #fdf0e3;
     }
-    .book-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem;
-      gap: 2rem;
+
+    /* Grid Buku */
+    main { flex:1; padding:2rem; }
+    .book-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      gap:1.5rem;
     }
     .book {
-      width: 200px;
-      height: 280px;
-      background-color: #252525;
-      border: 1px solid #3a3a3a;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1rem;
-      position: relative;
-      transition: transform 0.3s;
-      cursor: pointer;
+      position:relative;
+      background:#222;
+      border:1px solid #333;
+      border-radius:6px;
+      padding:1rem;
+      cursor:pointer;
+      overflow:hidden;
+      transition:transform 0.3s, background 0.3s;
+      min-height:180px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
     }
     .book:hover {
-      transform: translateY(-5px);
+      transform:translateY(-5px);
+      background:#2a2a2a;
     }
     .book h2 {
-      font-size: 1.2rem;
-      margin: 0;
-      color: #fff;
+      font-family:'Playfair Display', serif;
+      font-size:1.1rem;
+      margin-bottom:0.5rem;
+      color:#fdf0e3;
     }
     .book .quote {
-      font-size: 0.85rem;
-      color: #aaa;
-      opacity: 0;
-      transition: opacity 0.3s;
+      font-size:0.85rem;
+      color:#ccc;
+      opacity:0;
+      max-height:0;
+      transition:opacity 0.3s, max-height 0.3s;
+      overflow:hidden;
     }
     .book:hover .quote {
-      opacity: 1;
+      opacity:1;
+      max-height:80px;
     }
-    .tag {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: crimson;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
+    .book .tag {
+      position:absolute;
+      top:0.6rem; right:0.6rem;
+      background:#b32e2e;
+      color:#fff;
+      font-size:0.7rem;
+      padding:0.2rem 0.6rem;
+      border-radius:4px;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
     }
+    .tag.ongoing { background:#d98c3d; }
+    .tag.coming { background:#555; }
+
+    /* Footer & Media Sosial */
     footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #777;
-    }
-    .socials {
-      margin-top: 1rem;
+      background:#111;
+      padding:2rem;
+      text-align:center;
+      font-size:0.85rem;
+      border-top:1px solid #333;
     }
     .socials a {
-      color: #aaa;
-      margin: 0 0.5rem;
-      font-size: 1.2rem;
-      text-decoration: none;
+      margin:0 0.5rem;
+      font-size:1.4rem;
+      color:#aaa;
+      transition:color 0.3s;
     }
-    .socials a:hover {
-      color: #fff;
-    }
+    .socials a:hover { color:#fdf0e3; }
+
   </style>
 </head>
 <body>
 
 <header>
-  <h1>dxltax - Book Collection</h1>
+  <h1>Library of Hearts</h1>
+  <nav>
+    <button class="active" onclick="filterBooks('all', this)">All</button>
+    <button onclick="filterBooks('complete', this)">Lengkap</button>
+    <button onclick="filterBooks('ongoing', this)">Sedang Berjalan</button>
+    <button onclick="filterBooks('coming', this)">Akan Datang</button>
+  </nav>
 </header>
 
-<div class="nav">
-  <button class="active" onclick="filterBooks('all')">All</button>
-  <button onclick="filterBooks('complete')">Completed</button>
-  <button onclick="filterBooks('ongoing')">On Going</button>
-</div>
-
-<div class="book-list" id="bookList">
-  <div class="book" data-category="complete" onclick="location.href='book1.html'">
-    <h2>Autumn in April</h2>
-    <div class="quote">"You brought autumn in my spring."</div>
-    <div class="tag">Complete</div>
+<main>
+  <div class="book-grid" id="grid">
+    <div class="book" data-cat="ongoing" onclick="location.href='index.html'">
+      <h2>Autumn in April</h2>
+      <div class="quote">"You brought autumn in my spring."</div>
+      <div class="tag ongoing">Ongoing</div>
+    </div>
+    <div class="book" data-cat="coming" onclick="/* Belum tersedia */">
+      <h2>Am I Not Worthy?</h2>
+      <div class="quote">"Is it my love that’s too heavy, or your hands that never tried?"</div>
+      <div class="tag coming">Coming Soon</div>
+    </div>
   </div>
-
-  <div class="book" data-category="ongoing" onclick="location.href='#'">
-    <h2>Am I Not Worthy?</h2>
-    <div class="quote">"Is it my love that’s too heavy, or your hands that never tried?"</div>
-    <div class="tag" style="background:#ff9800;">On Going</div>
-  </div>
-</div>
+</main>
 
 <footer>
-  &copy; @dxltax • Business inquiries: <a href="mailto:dxltax@gmail.com">dxltax@gmail.com</a> • <a href="https://wa.me/6281234567890">WhatsApp</a>
+  <div>Contact &amp; Co‑work:</div>
   <div class="socials">
-    <a href="https://instagram.com/yourhandle" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@yourhandle" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@yourhandle" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
+  <div>&copy; 2025 @dxltax</div>
 </footer>
 
 <script>
-function filterBooks(category) {
-  const books = document.querySelectorAll('.book');
-  const buttons = document.querySelectorAll('.nav button');
-  buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-
-  books.forEach(book => {
-    if (category === 'all' || book.dataset.category === category) {
-      book.style.display = 'flex';
-    } else {
-      book.style.display = 'none';
-    }
-  });
-}
+  function filterBooks(cat, btn) {
+    const books = document.querySelectorAll('.book');
+    document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    books.forEach(b=>{
+      if(cat==='all' || b.dataset.cat===cat) b.style.display='flex';
+      else b.style.display='none';
+    });
+  }
 </script>
 
 </body>
