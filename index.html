@@ -9,13 +9,13 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      display:flex; 
-      font-family:'Libre Baskerville', serif; 
+      display:flex;
+      font-family:'Libre Baskerville', serif;
       background:#121212; color:#f0f0f0;
       min-height:100vh;
     }
 
-    /* Sidebar Fixed */
+    /* Sidebar */
     aside {
       width:250px;
       background:#1c1c1c;
@@ -30,39 +30,47 @@
     aside h2 {
       font-family:'Playfair Display', serif;
       font-size:1.4rem;
-      margin-bottom:1.5rem;
+      margin-bottom:2rem;
       color:#fdf0e3;
     }
-    .sidebar-nav button {
-      display:block;
+    .menu-group {
+      margin-bottom:1rem;
+    }
+    .menu-group button {
       width:100%;
-      margin:0.5rem 0;
-      padding:0.6rem;
       background:none;
       border:none;
-      text-align:left;
-      font-size:1rem;
       color:#bbb;
+      font-size:1rem;
+      text-align:left;
+      padding:0.6rem 0;
       cursor:pointer;
-      transition:color 0.3s, background 0.3s;
-    }
-    .sidebar-nav button.active,
-    .sidebar-nav button:hover {
-      color:#fff;
-      background:#333;
-      border-radius:4px;
-    }
-    
-    .socials a {
-      color:#ccc;
-      font-size:1.5rem;
-      margin-right:0.8rem;
       transition:color 0.3s;
     }
-    .socials a:hover {
+    .menu-group button:hover {
+      color:#fff;
+    }
+    .submenu {
+      margin-left:1rem;
+      margin-top:0.3rem;
+      display:none;
+      flex-direction:column;
+    }
+    .submenu button, .submenu a {
+      background:none;
+      border:none;
+      color:#888;
+      font-size:0.9rem;
+      text-align:left;
+      padding:0.3rem 0;
+      cursor:pointer;
+      transition:color 0.3s;
+      text-decoration: none;
+    }
+    .submenu button:hover, .submenu a:hover {
       color:#fdf0e3;
     }
-    
+
     main {
       margin-left:250px;
       padding:2rem;
@@ -137,24 +145,50 @@
     .tag.ongoing { background:#d98c3d; }
     .tag.coming { background:#555; }
 
+    footer {
+      margin-left:250px;
+      background:#1c1c1c;
+      text-align:center;
+      padding:1rem;
+      font-size:0.85rem;
+      border-top:1px solid #333;
+    }
   </style>
 </head>
 <body>
 
 <aside>
-  <h2>Library of Hearts</h2>
-  <div class="sidebar-nav">
-    <button class="active" onclick="filterBooks('all', this)">All</button>
-    <button onclick="filterBooks('complete', this)">Lengkap</button>
-    <button onclick="filterBooks('ongoing', this)">Sedang Berjalan</button>
-    <button onclick="filterBooks('coming', this)">Akan Datang</button>
-  </div>
-  <div class="socials">
-    <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
+  <div>
+    <h2>Library of Hearts</h2>
+    <!-- Kategori -->
+    <div class="menu-group">
+      <button onclick="toggleMenu('catMenu')"><i class="fas fa-book"></i> Kategori</button>
+      <div id="catMenu" class="submenu">
+        <button onclick="filterBooks('all')">All</button>
+        <button onclick="filterBooks('complete')">Completed</button>
+        <button onclick="filterBooks('ongoing')">Ongoing</button>
+        <button onclick="filterBooks('coming')">Coming Soon</button>
+      </div>
+    </div>
+
+    <!-- Sosmed -->
+    <div class="menu-group">
+      <button onclick="toggleMenu('socmedMenu')"><i class="fas fa-globe"></i> Socmed</button>
+      <div id="socmedMenu" class="submenu">
+        <a href="https://instagram.com/dxltax" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@dxltax" target="_blank">TikTok</a>
+        <a href="https://youtube.com/@dxltax" target="_blank">YouTube</a>
+      </div>
+    </div>
+
+    <!-- Kontak -->
+    <div class="menu-group">
+      <button onclick="toggleMenu('contactMenu')"><i class="fas fa-envelope"></i> Kontak</button>
+      <div id="contactMenu" class="submenu">
+        <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+        <a href="mailto:dxltax@gmail.com">Gmail</a>
+      </div>
+    </div>
   </div>
 </aside>
 
@@ -173,13 +207,20 @@
   </div>
 </main>
 
+<footer>
+  ©️ 2025 @dxltax
+</footer>
+
 <script>
-  function filterBooks(cat, btn) {
-    let books = document.querySelectorAll('.book');
-    document.querySelectorAll('.sidebar-nav button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    books.forEach(b=>{
-      b.style.display = (cat==='all' || b.dataset.cat===cat) ? 'flex' : 'none';
+  function toggleMenu(id) {
+    const menu = document.getElementById(id);
+    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function filterBooks(cat) {
+    const books = document.querySelectorAll('.book');
+    books.forEach(b => {
+      b.style.display = (cat === 'all' || b.dataset.cat === cat) ? 'flex' : 'none';
     });
   }
 </script>
