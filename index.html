@@ -86,34 +86,28 @@
       color: #fdf0e3;
       font-size: 1.1rem;
     }
-    
-.menu-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  margin-top: 1.2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  width: 100%;
-}
-.menu-bar > div {
-  position: relative;
-  text-align: center;
-}
-.menu-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-.menu-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
+
+    .menu-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .menu-btn {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #fdf0e3;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .menu-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
 
     .dropdown {
       display: none;
@@ -199,13 +193,6 @@
         gap: 0.5rem;
       }
     }
-    .private-text {
-  font-size: 0.7rem;
-  font-style: italic;
-  color: #888;
-  font-family: 'Arial', sans-serif;
-  opacity: 0.85;
-}
   </style>
 </head>
 <body>
@@ -217,14 +204,16 @@
     <div class="username">@dxltax</div>
     <div class="bio">Sharing hearts through digital pages.</div>
 
-    <div class="stats"><div><span id="postCount">2</span> Posts</div>
-<div style="display: flex; flex-direction: column; align-items: center;">
+    <div class="stats">
+  <div><span id="postCount">2</span>Posts</div>
+  <div style="display: flex; flex-direction: column; align-items: center;">
   <div>
-    <span id="followersCount" class="private-text">Only Me 🔒</span>
+    <span id="followersCount">***</span> Followers
   </div>
   <button id="followBtn" class="menu-btn" style="margin-top: 0.3rem; font-size: 0.75rem;">Follow</button>
 </div>
-<div><span id="viewersCount" class="private-text">Only Me 🔒</span> Viewers</div>
+  <div><span id="viewersCount">***</span>Viewers</div>
+</div>
 
     <div class="menu-bar">
       <div>
@@ -312,6 +301,13 @@
   const database = firebase.database();
 const statsRef = database.ref('stats');
 
+statsRef.on('value', (snapshot) => {
+  const data = snapshot.val();
+  if (data) {
+    document.getElementById('followersCount').textContent = data.followers ?? 0;
+    document.getElementById('viewersCount').textContent = data.viewers ?? 0;
+  }
+});
 </script>
   <script>
   const today = new Date().toISOString().slice(0, 10);
