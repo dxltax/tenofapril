@@ -3,86 +3,178 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ten of April - eBook Cover</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="cover.css">
+  <title>dxltax | Library of Hearts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #1a1a1a;
+      color: #f2f2f2;
+      padding-top: 60px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #111;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 1.2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .book-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
+
+    .book {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      width: 220px;
+      height: 160px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+
+    .book:hover {
+      background: #333;
+      transform: translateY(-4px);
+    }
+
+    .book h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+    }
+
+    .book .quote {
+      font-size: 0.85rem;
+      color: #aaa;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .book:hover .quote {
+      opacity: 1;
+      max-height: 100px;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.8rem;
+      font-size: 0.7rem;
+      background: #b32e2e;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 2rem 0 1rem;
+    }
+
+    .socials {
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      color: #999;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: #fff;
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/38a6c10e8f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="openInBrowserNotice" style="display: none; background: #fffbdd; color: #5c4424; padding: 1rem; text-align: center; font-family: sans-serif; font-size: 0.9rem; border-bottom: 1px solid #e2c385;">
-    ⚠️ For the best experience, <strong>please open this page in your browser</strong>.<br>
-    <a href="#" onclick="window.open(location.href, '_blank');" style="display:inline-block; margin-top: 0.5rem; background:#5c4424; color:#fff; padding: 0.4rem 0.8rem; border-radius: 4px; text-decoration: none;">Open in browser</a>
-  </div>
 
-  <div class="cover">
-    <h1 class="title">Autumn in April</h1>
-    <p class="subtitle">You Brought Autumn in My Spring</p>
-  </div>
+  <header>
+    <h1>Library of Hearts</h1>
+    <nav>
+      <a href="#">All</a>
+      <a href="#">Completed</a>
+      <a href="#">Coming Soon</a>
+      <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
+    </nav>
+  </header>
 
-  <!-- Bookmark Button -->
-  <div id="bookmarkBtn" style="text-align: center; margin-top: 1.5rem; display: none;">
-    <a id="continueLink" href="#" style="background: rgba(255,255,255,0.1); color: #fff; padding: 0.6rem 1.2rem; border-radius: 6px; text-decoration: none; font-family: 'Libre Baskerville', serif; font-size: 0.9rem; border: 1px solid #ffffff33;">
-      ➤ Continue Reading
-    </a>
-  </div>
+  <section class="book-grid">
+    <div class="book" onclick="location.href='index.html'">
+      <h2>Autumn in April</h2>
+      <div class="quote">"You brought autumn in my spring."</div>
+      <div class="badge">Completed</div>
+    </div>
 
-  <div class="copyright">@dxltax</div>
-  <div class="leaves"></div>
+    <div class="book">
+      <h2>Am I Not Worthy?</h2>
+      <div class="quote">"Is it my love that’s too heavy, or your hands that never tried?"</div>
+      <div class="badge">NEW</div>
+    </div>
 
-  <div class="message" id="message">
-    <p>
-      Some people arrive like spring<br/>
-      soft, warm, full of hope.<br/>
-      But leave like autumn<br/>
-      quietly, taking all the color with them.
-    </p>
-  </div>
+    <div class="book">
+      <h2>[Next Title]</h2>
+      <div class="quote">Coming soon...</div>
+      <div class="badge">COMING SOON</div>
+    </div>
+  </section>
 
-  <script>
-    // romantic message + delay redirect
-    document.body.addEventListener('click', () => {
-      const msg = document.getElementById('message');
-      msg.style.display = 'flex';
-
-      setTimeout(() => {
-        const lastPage = localStorage.getItem('lastPageRead') || 'prolog.html';
-        window.location.href = lastPage;
-      }, 5000);
-    });
-
-    // show Continue Reading if bookmark exists
-    const lastPage = localStorage.getItem('lastPageRead');
-    if (lastPage && lastPage !== 'index.html') {
-      const bookmarkBtn = document.getElementById('bookmarkBtn');
-      const continueLink = document.getElementById('continueLink');
-      continueLink.href = lastPage;
-      bookmarkBtn.style.display = 'block';
-    }
-
-    // generate falling leaves
-    const leafContainer = document.querySelector('.leaves');
-
-    for (let i = 0; i < 30; i++) {
-      const leaf = document.createElement('span');
-      leaf.textContent = '🍁';
-      leaf.classList.add('leaf');
-
-      leaf.style.left = Math.random() * 100 + 'vw';
-      leaf.style.fontSize = 18 + Math.random() * 16 + 'px';
-      leaf.style.animationDuration = 5 + Math.random() * 5 + 's';
-      leaf.style.animationDelay = Math.random() * 10 + 's';
-
-      leafContainer.appendChild(leaf);
-    }
-
-    // notice for Instagram in-app browser
-    const isInstagram = navigator.userAgent.includes("Instagram");
-    if (isInstagram) {
-      const notice = document.getElementById("openInBrowserNotice");
-      if (notice) {
-        notice.style.display = "block";
-      }
-    }
-  </script>
+  <footer>
+    &copy; 2025 @dxltax — all heartbreaks reserved.
+    <div class="socials">
+      <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
 
 </body>
 </html>
