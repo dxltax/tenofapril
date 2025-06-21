@@ -193,6 +193,13 @@
         gap: 0.5rem;
       }
     }
+    .private-text {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: #888;
+  font-family: 'Arial', sans-serif;
+  opacity: 0.85;
+}
   </style>
 </head>
 <body>
@@ -204,16 +211,14 @@
     <div class="username">@dxltax</div>
     <div class="bio">Sharing hearts through digital pages.</div>
 
-    <div class="stats">
-  <div><span id="postCount">2</span>Posts</div>
-  <div style="display: flex; flex-direction: column; align-items: center;">
+    <div class="stats"><div><span id="postCount">2</span> Posts</div>
+<div style="display: flex; flex-direction: column; align-items: center;">
   <div>
-    <span id="followersCount">Only Me 🔒</span> Followers
+    <span id="followersCount" class="private-text">Only Me 🔒</span>
   </div>
   <button id="followBtn" class="menu-btn" style="margin-top: 0.3rem; font-size: 0.75rem;">Follow</button>
 </div>
-  <div><span id="viewersCount">Only Me 🔒</span>Viewers</div>
-</div>
+<div><span id="viewersCount" class="private-text">Only Me 🔒</span> Viewers</div>
 
     <div class="menu-bar">
       <div>
