@@ -3,198 +3,262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>@dxltax | Library of Hearts</title>
+  <title>dxltax | Library of Hearts</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
     body {
       font-family: 'Libre Baskerville', serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
+      background: #000;
+      color: #fff;
       display: flex;
-      justify-content: center;
-      padding: 2rem 1rem;
-      min-height: 100vh;
-    }
-
-    .profile-container {
-      width: 100%;
-      max-width: 900px;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 0 30px rgba(255,255,255,0.03);
-    }
-
-    .profile-header {
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
+      padding: 2rem 1rem;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
     .profile-pic {
-      width: 100px; height: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      padding: 3px;
-      background: linear-gradient(45deg, #ff7e5f, #feb47b);
-      flex-shrink: 0;
+      border: 3px solid #fdf0e3;
+      background: url('https://placehold.co/120x120') center/cover;
+      margin-bottom: 1rem;
+      position: relative;
     }
 
-    .profile-pic img {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #0a0a0a;
-    }
-
-    .profile-info {
-      flex: 1;
-    }
-
-    .profile-info h2 {
+    .username {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      margin-bottom: 0.3rem;
+      font-size: 1.5rem;
+      color: #fdf0e3;
+      margin-bottom: 0.5rem;
     }
 
     .bio {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: #ccc;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .stats {
       display: flex;
-      gap: 1.5rem;
-      font-size: 0.85rem;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .stats div {
+      text-align: center;
     }
 
     .stats div span {
-      font-weight: bold;
       display: block;
-      font-size: 1.1rem;
+      font-weight: bold;
       color: #fdf0e3;
+      font-size: 1.1rem;
     }
 
-    .nav-buttons {
-      margin: 2rem 0 1rem;
+    .menu-bar {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
     }
 
-    .nav-buttons button {
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255,255,255,0.15);
+    .menu-btn {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
       color: #fdf0e3;
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      transition: background 0.3s;
     }
 
-    .nav-buttons button:hover {
-      background: rgba(255,255,255,0.15);
-      transform: scale(1.05);
+    .menu-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .dropdown {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      gap: 0.3rem;
+    }
+
+    .dropdown button, .dropdown a {
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .dropdown button:hover, .dropdown a:hover {
+      color: #fdf0e3;
     }
 
     .book-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 800px;
     }
 
     .book {
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 1rem;
-      transition: transform 0.3s;
       cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
     }
 
     .book:hover {
       transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .book h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1rem;
+      margin-bottom: 0.5rem;
       color: #fdf0e3;
-      margin-bottom: 0.3rem;
     }
 
-    .book p {
+    .quote {
       font-size: 0.85rem;
       color: #bbb;
     }
 
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #888;
+    .tag {
+      margin-top: 0.6rem;
+      font-size: 0.7rem;
+      background: #d98c3d;
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #000;
     }
 
-    @media(max-width: 600px) {
-      .profile-header {
+    .tag.coming {
+      background: #555;
+      color: #fff;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    @media (max-width: 500px) {
+      .stats {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 0.5rem;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="profile-container">
-  <div class="profile-header">
+  <div class="profile-card">
     <div class="profile-pic">
-      <img src="IMG_8091.jpeg" alt="Profile" />
+      <img src="IMG_8091.jpeg" alt="dxltax profile">
     </div>
-    <div class="profile-info">
-      <h2>@dxltax</h2>
-      <div class="bio">A heart-shaped library. Words, wounds, and whispers.</div>
-      <div class="stats">
-        <div><span>2</span> Posts</div>
-        <div><span>1.2K</span> Followers</div>
-        <div><span>3</span> Following</div>
+    <div class="username">@dxltax</div>
+    <div class="bio">Sharing hearts through digital pages.</div>
+
+    <div class="stats">
+      <div><span>2</span>Posts</div>
+      <div><span>1.2k</span>Followers</div>
+      <div><span>214</span>Following</div>
+    </div>
+
+    <div class="menu-bar">
+      <div>
+        <button class="menu-btn" onclick="toggleDropdown('catDropdown')">Category</button>
+        <div id="catDropdown" class="dropdown">
+          <button onclick="filterBooks('all')">All</button>
+          <button onclick="filterBooks('ongoing')">Ongoing</button>
+          <button onclick="filterBooks('coming')">Coming Soon</button>
+        </div>
+      </div>
+      <div>
+        <button class="menu-btn" onclick="toggleDropdown('socDropdown')">Social Media</button>
+        <div id="socDropdown" class="dropdown">
+          <a href="https://instagram.com/dxltax" target="_blank">Instagram</a>
+          <a href="https://tiktok.com/@dxltax" target="_blank">TikTok</a>
+          <a href="https://youtube.com/@dxltax" target="_blank">YouTube</a>
+        </div>
+      </div>
+      <div>
+        <button class="menu-btn" onclick="toggleDropdown('contactDropdown')">Contact</button>
+        <div id="contactDropdown" class="dropdown">
+          <a href="mailto:dxltax@gmail.com">Gmail</a>
+          <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="nav-buttons">
-    <button>Category</button>
-    <button>Social Media</button>
-    <button>Contact</button>
-  </div>
-
-  <div class="book-grid">
-    <div class="book" onclick="location.href='book1.html'">
+  <div class="book-grid" id="bookGrid">
+    <div class="book" data-category="ongoing" onclick="location.href='book1.html'">
       <h3>Autumn in April</h3>
-      <p>"You brought autumn in my spring."</p>
+      <div class="quote">"You brought autumn in my spring."</div>
+      <div class="tag">Ongoing</div>
     </div>
-    <div class="book">
+    <div class="book" data-category="coming" onclick="/* Coming soon */">
       <h3>Am I Not Worthy?</h3>
-      <p>"Is it my love that’s too heavy, or your hands that never tried?"</p>
-    </div>
-    <div class="book">
-      <h3>Coming Soon</h3>
-      <p>"A new story is being written."</p>
+      <div class="quote">"Is it my love that’s too heavy, or your hands that never tried?"</div>
+      <div class="tag coming">Coming Soon</div>
     </div>
   </div>
 
-  <footer>© 2025 @dxltax</footer>
-</div>
+  <footer>
+    © 2025 @dxltax
+  </footer>
+
+  <script>
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    function filterBooks(category) {
+      const books = document.querySelectorAll('.book');
+      books.forEach(book => {
+        const bookCat = book.getAttribute('data-category');
+        if (category === 'all' || bookCat === category) {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
