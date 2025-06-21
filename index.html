@@ -7,95 +7,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    /* Reset dasar & font styling */
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      background: #151515;
-      color: #eee;
-      font-family: 'Libre Baskerville', serif;
-      line-height:1.5;
+      display:flex; 
+      font-family:'Libre Baskerville', serif; 
+      background:#121212; color:#f0f0f0;
       min-height:100vh;
+    }
+
+    /* Sidebar Fixed */
+    aside {
+      width:250px;
+      background:#1c1c1c;
+      padding:2rem 1rem;
+      position:fixed;
+      top:0; bottom:0;
       display:flex;
       flex-direction:column;
-    }
-    a { text-decoration:none; color:inherit; }
-
-    /* Header Fixed */
-    header {
-      position:sticky; top:0;
-      background:#111;
-      padding:1rem 2rem;
-      display:flex;
-      align-items:center;
       justify-content:space-between;
-      z-index:100;
-      border-bottom:1px solid #333;
+      border-right:1px solid #333;
     }
-    header h1 {
+    aside h2 {
       font-family:'Playfair Display', serif;
-      font-size:1.8rem;
+      font-size:1.4rem;
+      margin-bottom:1.5rem;
       color:#fdf0e3;
     }
-    nav button {
+    .sidebar-nav button {
+      display:block;
+      width:100%;
+      margin:0.5rem 0;
+      padding:0.6rem;
       background:none;
       border:none;
-      color:#aaa;
-      margin-left:1rem;
+      text-align:left;
       font-size:1rem;
+      color:#bbb;
       cursor:pointer;
-      padding:0.25rem;
-      transition:color 0.3s, border-bottom 0.3s;
+      transition:color 0.3s, background 0.3s;
     }
-    nav button.active,
-    nav button:hover {
+    .sidebar-nav button.active,
+    .sidebar-nav button:hover {
+      color:#fff;
+      background:#333;
+      border-radius:4px;
+    }
+    
+    .socials a {
+      color:#ccc;
+      font-size:1.5rem;
+      margin-right:0.8rem;
+      transition:color 0.3s;
+    }
+    .socials a:hover {
       color:#fdf0e3;
-      border-bottom:2px solid #fdf0e3;
+    }
+    
+    main {
+      margin-left:250px;
+      padding:2rem;
+      flex:1;
     }
 
-    /* Grid Buku */
-    main { flex:1; padding:2rem; }
     .book-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
       gap:1.5rem;
     }
     .book {
       position:relative;
       background:#222;
-      border:1px solid #333;
       border-radius:6px;
       padding:1rem;
-      cursor:pointer;
       overflow:hidden;
+      cursor:pointer;
       transition:transform 0.3s, background 0.3s;
-      min-height:180px;
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
+      min-height:180px;
     }
     .book:hover {
       transform:translateY(-5px);
-      background:#2a2a2a;
+      background:#2e2e2e;
     }
     .book h2 {
       font-family:'Playfair Display', serif;
       font-size:1.1rem;
-      margin-bottom:0.5rem;
+      margin-bottom:0.4rem;
+      position:relative;
       color:#fdf0e3;
     }
-    .book .quote {
+    .book h2::after {
+      content:'';
+      position:absolute;
+      bottom:-2px;
+      left:0;
+      width:0;
+      height:2px;
+      background:#d98c3d;
+      transition:width 0.3s;
+    }
+    .book:hover h2::after {
+      width:100%;
+    }
+    .quote {
       font-size:0.85rem;
       color:#ccc;
       opacity:0;
       max-height:0;
-      transition:opacity 0.3s, max-height 0.3s;
       overflow:hidden;
+      transition:opacity 0.3s, max-height 0.3s;
     }
     .book:hover .quote {
       opacity:1;
       max-height:80px;
     }
-    .book .tag {
+    .tag {
       position:absolute;
       top:0.6rem; right:0.6rem;
       background:#b32e2e;
@@ -109,39 +137,30 @@
     .tag.ongoing { background:#d98c3d; }
     .tag.coming { background:#555; }
 
-    /* Footer & Media Sosial */
-    footer {
-      background:#111;
-      padding:2rem;
-      text-align:center;
-      font-size:0.85rem;
-      border-top:1px solid #333;
-    }
-    .socials a {
-      margin:0 0.5rem;
-      font-size:1.4rem;
-      color:#aaa;
-      transition:color 0.3s;
-    }
-    .socials a:hover { color:#fdf0e3; }
-
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Library of Hearts</h1>
-  <nav>
+<aside>
+  <h2>Library of Hearts</h2>
+  <div class="sidebar-nav">
     <button class="active" onclick="filterBooks('all', this)">All</button>
-    <button onclick="filterBooks('complete', this)">Completed</button>
-    <button onclick="filterBooks('ongoing', this)">Ongoing</button>
-    <button onclick="filterBooks('coming', this)">Coming Soon</button>
-  </nav>
-</header>
+    <button onclick="filterBooks('complete', this)">Lengkap</button>
+    <button onclick="filterBooks('ongoing', this)">Sedang Berjalan</button>
+    <button onclick="filterBooks('coming', this)">Akan Datang</button>
+  </div>
+  <div class="socials">
+    <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+</aside>
 
 <main>
   <div class="book-grid" id="grid">
-    <div class="book" data-cat="ongoing" onclick="location.href='book1.html'">
+    <div class="book" data-cat="ongoing" onclick="location.href='index.html'">
       <h2>Autumn in April</h2>
       <div class="quote">"You brought autumn in my spring."</div>
       <div class="tag ongoing">Ongoing</div>
@@ -154,26 +173,13 @@
   </div>
 </main>
 
-<footer>
-  <div>Contact &amp; Co‑work:</div>
-  <div class="socials">
-    <a href="mailto:dxltax@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/dxltax" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://tiktok.com/@dxltax" target="_blank"><i class="fab fa-tiktok"></i></a>
-    <a href="https://youtube.com/@dxltax" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-  <div>&copy; 2025 @dxltax</div>
-</footer>
-
 <script>
   function filterBooks(cat, btn) {
-    const books = document.querySelectorAll('.book');
-    document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+    let books = document.querySelectorAll('.book');
+    document.querySelectorAll('.sidebar-nav button').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     books.forEach(b=>{
-      if(cat==='all' || b.dataset.cat===cat) b.style.display='flex';
-      else b.style.display='none';
+      b.style.display = (cat==='all' || b.dataset.cat===cat) ? 'flex' : 'none';
     });
   }
 </script>
