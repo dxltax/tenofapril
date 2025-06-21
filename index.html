@@ -88,25 +88,31 @@
     }
     
 .menu-bar {
-  display:flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  display: flex;
   justify-content: center;
-  margin-botton: 2rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  width: 100%;
 }
-  
+.menu-bar > div {
+  position: relative;
+  text-align: center;
+}
 .menu-btn {
-  padding: 0.5rem 1rem;
-  background; rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  color: #fdf0e3;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
-transition: backfground 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s;
 }
-    
 .menu-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
 }
 
     .dropdown {
