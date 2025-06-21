@@ -273,6 +273,29 @@
       });
     }
   </script>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB4uwqaponYhMGY_C3GA19RWsJ1cSzHEuA",
+    authDomain: "dxltax-portfolio.firebaseapp.com",
+    projectId: "dxltax-portfolio",
+    storageBucket: "dxltax-portfolio.firebasestorage.app",
+    messagingSenderId: "340671535096",
+    appId: "1:340671535096:web:de0da9dad007f9da41a80d",
+    measurementId: "G-9H4MV1FH9L"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 </body>
 </html>
