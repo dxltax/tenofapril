@@ -1,229 +1,200 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>dxltax | Library of Hearts</title>
+  <title>@dxltax | Library of Hearts</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      display:flex;
-      font-family:'Libre Baskerville', serif;
-      background:#121212; color:#f0f0f0;
-      min-height:100vh;
+      font-family: 'Libre Baskerville', serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
     }
 
-    /* Sidebar */
-    aside {
-      width:250px;
-      background:#1c1c1c;
-      padding:2rem 1rem;
-      position:fixed;
-      top:0; bottom:0;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      border-right:1px solid #333;
-    }
-    aside h2 {
-      font-family:'Playfair Display', serif;
-      font-size:1.4rem;
-      margin-bottom:2rem;
-      color:#fdf0e3;
-    }
-    .menu-group {
-      margin-bottom:1rem;
-    }
-    .menu-group button {
-      width:100%;
-      background:none;
-      border:none;
-      color:#bbb;
-      font-size:1rem;
-      text-align:left;
-      padding:0.6rem 0;
-      cursor:pointer;
-      transition:color 0.3s;
-    }
-    .menu-group button:hover {
-      color:#fff;
-    }
-    .submenu {
-      margin-left:1rem;
-      margin-top:0.3rem;
-      display:none;
-      flex-direction:column;
-    }
-    .submenu button, .submenu a {
-      background:none;
-      border:none;
-      color:#888;
-      font-size:0.9rem;
-      text-align:left;
-      padding:0.3rem 0;
-      cursor:pointer;
-      transition:color 0.3s;
-      text-decoration: none;
-    }
-    .submenu button:hover, .submenu a:hover {
-      color:#fdf0e3;
+    .profile-container {
+      width: 100%;
+      max-width: 900px;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 30px rgba(255,255,255,0.03);
     }
 
-    main {
-      margin-left:250px;
-      padding:2rem;
-      flex:1;
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      flex-shrink: 0;
+    }
+
+    .profile-pic img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #0a0a0a;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+
+    .stats div span {
+      font-weight: bold;
+      display: block;
+      font-size: 1.1rem;
+      color: #fdf0e3;
+    }
+
+    .nav-buttons {
+      margin: 2rem 0 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-buttons button {
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fdf0e3;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .nav-buttons button:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.05);
     }
 
     .book-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
-      gap:1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
     }
+
     .book {
-      position:relative;
-      background:#222;
-      border-radius:6px;
-      padding:1rem;
-      overflow:hidden;
-      cursor:pointer;
-      transition:transform 0.3s, background 0.3s;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      min-height:180px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s;
+      cursor: pointer;
     }
+
     .book:hover {
-      transform:translateY(-5px);
-      background:#2e2e2e;
+      transform: translateY(-5px);
     }
-    .book h2 {
-      font-family:'Playfair Display', serif;
-      font-size:1.1rem;
-      margin-bottom:0.4rem;
-      position:relative;
-      color:#fdf0e3;
+
+    .book h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #fdf0e3;
+      margin-bottom: 0.3rem;
     }
-    .book h2::after {
-      content:'';
-      position:absolute;
-      bottom:-2px;
-      left:0;
-      width:0;
-      height:2px;
-      background:#d98c3d;
-      transition:width 0.3s;
+
+    .book p {
+      font-size: 0.85rem;
+      color: #bbb;
     }
-    .book:hover h2::after {
-      width:100%;
-    }
-    .quote {
-      font-size:0.85rem;
-      color:#ccc;
-      opacity:0;
-      max-height:0;
-      overflow:hidden;
-      transition:opacity 0.3s, max-height 0.3s;
-    }
-    .book:hover .quote {
-      opacity:1;
-      max-height:80px;
-    }
-    .tag {
-      position:absolute;
-      top:0.6rem; right:0.6rem;
-      background:#b32e2e;
-      color:#fff;
-      font-size:0.7rem;
-      padding:0.2rem 0.6rem;
-      border-radius:4px;
-      text-transform:uppercase;
-      letter-spacing:0.5px;
-    }
-    .tag.ongoing { background:#d98c3d; }
-    .tag.coming { background:#555; }
 
     footer {
-      margin-left:250px;
-      background:#1c1c1c;
-      text-align:center;
-      padding:1rem;
-      font-size:0.85rem;
-      border-top:1px solid #333;
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    @media(max-width: 600px) {
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
 
-<aside>
-  <div>
-    <h2>Library of Hearts</h2>
-    <!-- Kategori -->
-    <div class="menu-group">
-      <button onclick="toggleMenu('catMenu')"><i class="fas fa-book"></i> Category</button>
-      <div id="catMenu" class="submenu">
-        <button onclick="filterBooks('all')">All</button>
-        <button onclick="filterBooks('complete')">Completed</button>
-        <button onclick="filterBooks('ongoing')">Ongoing</button>
-        <button onclick="filterBooks('coming')">Coming Soon</button>
-      </div>
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-pic">
+      <img src="IMG_8091.jpeg" alt="Profile" />
     </div>
-
-    <!-- Sosmed -->
-    <div class="menu-group">
-      <button onclick="toggleMenu('socmedMenu')"><i class="fas fa-globe"></i> Social Media</button>
-      <div id="socmedMenu" class="submenu">
-        <a href="https://instagram.com/dxltax" target="_blank">Instagram</a>
-        <a href="https://tiktok.com/@dxltax" target="_blank">TikTok</a>
-        <a href="https://youtube.com/@dxltax" target="_blank">YouTube</a>
-      </div>
-    </div>
-
-    <!-- Kontak -->
-    <div class="menu-group">
-      <button onclick="toggleMenu('contactMenu')"><i class="fas fa-envelope"></i> Contact</button>
-      <div id="contactMenu" class="submenu">
-        <a href="https://wa.me/6281234567890" target="_blank">WhatsApp</a>
-        <a href="mailto:dxltax@gmail.com">Gmail</a>
+    <div class="profile-info">
+      <h2>@dxltax</h2>
+      <div class="bio">A heart-shaped library. Words, wounds, and whispers.</div>
+      <div class="stats">
+        <div><span>2</span> Posts</div>
+        <div><span>1.2K</span> Followers</div>
+        <div><span>3</span> Following</div>
       </div>
     </div>
   </div>
-</aside>
 
-<main>
-  <div class="book-grid" id="grid">
-    <div class="book" data-cat="ongoing" onclick="location.href='book1.html'">
-      <h2>Autumn in April</h2>
-      <div class="quote">"You brought autumn in my spring."</div>
-      <div class="tag ongoing">Ongoing</div>
+  <div class="nav-buttons">
+    <button>Category</button>
+    <button>Social Media</button>
+    <button>Contact</button>
+  </div>
+
+  <div class="book-grid">
+    <div class="book" onclick="location.href='book1.html'">
+      <h3>Autumn in April</h3>
+      <p>"You brought autumn in my spring."</p>
     </div>
-    <div class="book" data-cat="coming" onclick="/* Belum tersedia */">
-      <h2>Am I Not Worthy?</h2>
-      <div class="quote">"Is it my love that’s too heavy, or your hands that never tried?"</div>
-      <div class="tag coming">Coming Soon</div>
+    <div class="book">
+      <h3>Am I Not Worthy?</h3>
+      <p>"Is it my love that’s too heavy, or your hands that never tried?"</p>
+    </div>
+    <div class="book">
+      <h3>Coming Soon</h3>
+      <p>"A new story is being written."</p>
     </div>
   </div>
-</main>
 
-<footer>
-  ©️ 2025 @dxltax
-</footer>
-
-<script>
-  function toggleMenu(id) {
-    const menu = document.getElementById(id);
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
-  }
-
-  function filterBooks(cat) {
-    const books = document.querySelectorAll('.book');
-    books.forEach(b => {
-      b.style.display = (cat === 'all' || b.dataset.cat === cat) ? 'flex' : 'none';
-    });
-  }
-</script>
+  <footer>© 2025 @dxltax</footer>
+</div>
 
 </body>
 </html>
