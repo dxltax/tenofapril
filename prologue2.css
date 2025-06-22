@@ -35,8 +35,8 @@ body, html {
 }
 
 .chapter-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
   color: #f3f3f3;
   margin-bottom: 2rem;
 }
@@ -50,14 +50,13 @@ body, html {
 .prologue-text {
   font-family: 'Libre Baskerville', serif;
   font-size: 1rem;
-  line-height: 1.7;            /* disamakan seperti .book-content */
+  line-height: 1.6;            /* disamakan seperti .book-content */
   color: #dddddd;
   text-align: center;
   white-space: pre-line;
-  margin-bottom: 2rem;
 }
 .prologue-text p {
-  margin-bottom: 1.5rem;       /* konsisten dengan .book-content p */
+  margin-bottom: 1rem;       /* konsisten dengan .book-content p */
 }
 
 .nav-buttons {
