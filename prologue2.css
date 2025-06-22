@@ -1,0 +1,113 @@
+/* pages.css — untuk halaman isi seperti prolog & chapter */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: radial-gradient(ellipse at center, #2e1f25 0%, #1a1a1a 100%);
+  color: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  position: relative;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 20px;
+  padding: 50px 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.chapter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #f3f3f3;
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  background: linear-gradient(to right, #d16ba5, #c777b9, #ba83ca);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.prologue-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #dddddd;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.nav-buttons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.nav-buttons button {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  padding: 8px 12px;
+  color: #eee;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+}
+
+.nav-buttons button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #bbb;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.page-number {
+  font-style: italic;
+}
+
+.save-btn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #aaa;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
