@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Halaman Kutipan — Am I Not Worthy?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Great+Vibes&display=swap" rel="stylesheet">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Libre Baskerville', serif;
+      background: radial-gradient(ellipse at center, #2e1f25 0%, #1a1a1a 100%);
+      color: #fff;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      padding: 40px 20px;
+      max-width: 900px;
+      width: 100%;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 60px 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fbe4ee;
+      line-height: 1.8;
+      text-shadow: 0 0 8px rgba(255, 192, 203, 0.2);
+      white-space: pre-line;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .nav-buttons button {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      padding: 8px 12px;
+      color: #eee;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+
+    .nav-buttons button:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #bbb;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .page-number {
+      font-style: italic;
+    }
+
+    .save-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #aaa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .save-btn:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="capture" class="container">
+    <div class="nav-buttons">
+      <button onclick="goTo('prev')">← Back</button>
+      <button onclick="goTo('cover')">⤒ Cover</button>
+      <button onclick="goTo('next')">Next →</button>
+    </div>
+
+    <div class="glass-card">
+      <div class="quote-text">
+        “Sejak kamu pergi, aku tidak benar benar hidup. Aku hanya bernapas karena tubuhku belum tahu caranya mati.”
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="copyright">⸻ ten of april</span>
+      <span class="page-number">page 2</span>
+      <button class="save-btn" onclick="downloadAsImage()">⤓ Save as JPEG</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(target) {
+      if (target === 'prev') window.location.href = 'prologue2.html';
+      if (target === 'cover') window.location.href = 'index.html';
+      if (target === 'next') window.location.href = 'page3.html';
+    }
+
+    function downloadAsImage() {
+      const content = document.getElementById('capture');
+
+      const originalBg = content.style.background;
+      const originalFilter = content.style.backdropFilter;
+      const originalWebkit = content.style.webkitBackdropFilter;
+
+      content.style.background = "#1a1a1a";
+      content.style.backdropFilter = "none";
+      content.style.webkitBackdropFilter = "none";
+
+      html2canvas(content, {
+        scale: 3,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'am-i-not-worthy-page2.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+
+        content.style.background = originalBg;
+        content.style.backdropFilter = originalFilter;
+        content.style.webkitBackdropFilter = originalWebkit;
+      });
+    }
+  </script>
+</body>
+</html>
