@@ -128,7 +128,7 @@
 </head>
 <body>
   <div id="capture" class="container">
-    <div class="nav-buttons">
+    <div class="nav-buttons no-capture">
       <button onclick="goTo('prev')">← Back</button>
       <button onclick="goTo('cover')">⤒ Cover</button>
       <button onclick="goTo('next')">Next →</button>
@@ -150,7 +150,7 @@ Karena ternyata yang paling menyiksa bukan perpisahan itu sendiri, tapi sisa-sis
     <div class="footer">
       <span class="copyright">⸻ ten of april</span>
       <span class="page-number">page 3</span>
-      <button class="save-btn" onclick="downloadAsImage()">⤓ Save as JPEG</button>
+      <button class="save-btn no-capture" onclick="downloadAsImage()">⤓ Save as JPEG</button>
     </div>
   </div>
 
@@ -163,6 +163,9 @@ Karena ternyata yang paling menyiksa bukan perpisahan itu sendiri, tapi sisa-sis
 
     function downloadAsImage() {
       const content = document.getElementById('capture');
+
+      const hiddenItems = document.querySelectorAll('.no-capture');
+  hiddenItems.forEach(el => el.style.visibility = 'hidden');
 
       const originalBg = content.style.background;
       const originalFilter = content.style.backdropFilter;
