@@ -162,7 +162,7 @@
     <div class="footer">
       <span class="copyright">⸻ ten of april</span>
       <span class="page-number">page 1</span>
-      <button class="save-btn" onclick="downloadAsImage()">⤓ Save as JPEG</button>
+     <button class="save-btn" id="save">⤓ Save as JPEG</button>
     </div>
   </div>
 
@@ -173,8 +173,14 @@
       if (target === 'next') window.location.href = 'page2.html'; // ganti sesuai struktur
     }
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
+  function goTo(target) {
+    if (target === 'prev') window.location.href = 'index.html';
+    if (target === 'cover') window.location.href = 'index.html';
+    if (target === 'next') window.location.href = 'page2.html';
+  }
+
   document.getElementById('save').addEventListener('click', () => {
     const content = document.getElementById('capture');
 
@@ -189,7 +195,7 @@
     content.style.webkitBackdropFilter = "none";
 
     html2canvas(content, {
-      scale: 3,  // Lebih tajam
+      scale: 3,
       useCORS: true
     }).then(canvas => {
       const link = document.createElement('a');
@@ -197,7 +203,7 @@
       link.href = canvas.toDataURL('image/jpeg', 0.95);
       link.click();
 
-      // kembalikan ke tampilan semula
+      // kembalikan gaya semula
       content.style.background = originalBg;
       content.style.backdropFilter = originalFilter;
       content.style.webkitBackdropFilter = originalWebkitFilter;
