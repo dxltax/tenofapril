@@ -3,7 +3,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Libre Baskerville', serif;
   background: radial-gradient(ellipse at center, #2e1f25 0%, #1a1a1a 100%);
   color: #fff;
   height: 100%;
@@ -48,12 +48,16 @@ body, html {
 }
 
 .prologue-text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  line-height: 1.7;            /* disamakan seperti .book-content */
   color: #dddddd;
-  white-space: pre-line;
   text-align: center;
+  white-space: pre-line;
+  margin-bottom: 2rem;
+}
+.prologue-text p {
+  margin-bottom: 1.5rem;       /* konsisten dengan .book-content p */
 }
 
 .nav-buttons {
