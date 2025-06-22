@@ -21,14 +21,20 @@
 
     .container {
       position: relative;
-      padding: 40px 20px;
-      max-width: 900px;
       width: 100%;
+      max-width: 900px;
       min-height: 100vh;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     .glass-card {
+      width: 80vw;
+      max-width: 700px;
+      aspect-ratio: 1 / 1; /* Bentuk square */
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
@@ -36,14 +42,14 @@
       padding: 60px 40px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
     }
 
     .quote-text {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: bold;
       color: #fbe4ee;
       line-height: 1.8;
@@ -77,15 +83,17 @@
     }
 
     .footer {
-      margin-top: 30px;
+      margin-top: 25px;
       text-align: center;
       font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: #bbb;
-      padding: 10px 0;
-      flex-wrap: wrap;
+      padding: 0 10px;
+      width: 100%;
+      max-width: 700px;
+      box-sizing: border-box;
     }
 
     .page-number {
@@ -118,7 +126,7 @@
 
     <div class="glass-card">
       <div class="quote-text">
-        “Sejak kamu pergi, aku tidak benar benar hidup. Aku hanya bernapas karena tubuhku belum tahu caranya mati.”
+        “Sejak kamu pergi, aku tidak benar-benar hidup. Aku hanya bernapas karena tubuhku belum tahu caranya mati.”
       </div>
     </div>
 
@@ -132,7 +140,7 @@
   <script>
     function goTo(target) {
       if (target === 'prev') window.location.href = 'prologue2.html';
-      if (target === 'cover') window.location.href = 'index.html';
+      if (target === 'cover') window.location.href = 'book2.html';
       if (target === 'next') window.location.href = 'page3.html';
     }
 
@@ -152,7 +160,7 @@
         useCORS: true
       }).then(canvas => {
         const link = document.createElement('a');
-        link.download = 'am-i-not-worthy-page2.jpg';
+        link.download = 'ten-of-april-page2.jpg';
         link.href = canvas.toDataURL('image/jpeg', 0.95);
         link.click();
 
