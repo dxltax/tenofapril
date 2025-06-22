@@ -49,8 +49,8 @@ body, html {
 
 .prologue-text {
   font-family: 'Libre Baskerville', serif;
-  font-size: 1rem;
-  line-height: 1.6;            /* disamakan seperti .book-content */
+  font-size: 1.05rem;
+  line-height: 1.8;            /* disamakan seperti .book-content */
   color: #dddddd;
   text-align: center;
   white-space: pre-line;
