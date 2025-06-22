@@ -167,6 +167,9 @@ Karena ternyata yang paling menyiksa bukan perpisahan itu sendiri, tapi sisa-sis
       const content = document.getElementById('capture');
 
       const hiddenItems = document.querySelectorAll('.no-capture');
+      hiddenItems.forEach(el => el.style.visibility = 'hidden');
+
+      const hiddenItems = document.querySelectorAll('.no-capture');
   hiddenItems.forEach(el => el.style.visibility = 'hidden');
 
       const originalBg = content.style.background;
