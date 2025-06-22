@@ -173,15 +173,36 @@
       if (target === 'next') window.location.href = 'page2.html'; // ganti sesuai struktur
     }
 
-    function downloadAsImage() {
-      const capture = document.getElementById("capture");
-      html2canvas(capture, { scale: 3 }).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "prologue_am_i_not_worthy.jpg";
-        link.href = canvas.toDataURL("image/jpeg", 1.0);
-        link.click();
-      });
-    }
-  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  document.getElementById('save').addEventListener('click', () => {
+    const content = document.getElementById('capture');
+
+    // simpan style asli
+    const originalBg = content.style.background;
+    const originalFilter = content.style.backdropFilter;
+    const originalWebkitFilter = content.style.webkitBackdropFilter;
+
+    // ubah sementara agar hasil render tidak pudar
+    content.style.background = "#1a1a1a";
+    content.style.backdropFilter = "none";
+    content.style.webkitBackdropFilter = "none";
+
+    html2canvas(content, {
+      scale: 3,  // Lebih tajam
+      useCORS: true
+    }).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'tenofapril.jpg';
+      link.href = canvas.toDataURL('image/jpeg', 0.95);
+      link.click();
+
+      // kembalikan ke tampilan semula
+      content.style.background = originalBg;
+      content.style.backdropFilter = originalFilter;
+      content.style.webkitBackdropFilter = originalWebkitFilter;
+    });
+  });
+</script>
 </body>
 </html>
