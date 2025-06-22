@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bab 1 — Am I Not Worthy?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Great+Vibes&display=swap" rel="stylesheet">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Libre Baskerville', serif;
+      background: radial-gradient(ellipse at center, #2e1f25 0%, #1a1a1a 100%);
+      color: #fff;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 40px 24px;
+    }
+
+    .glass-card {
+      width: 80vw;
+      max-width: 700px;
+      aspect-ratio: 1 / 1;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 50px 40px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      overflow: auto;
+      margin: 0 auto;
+    }
+
+    .chapter-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+      margin-bottom: 1.8rem;
+      background: linear-gradient(to right, #f3b8d4, #d887b5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 8px rgba(255, 192, 203, 0.3);
+    }
+
+    .chapter-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #e6e6e6;
+      white-space: pre-line;
+    }
+
+      .nav-buttons {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 9999;
+}
+
+    .nav-buttons button {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      padding: 8px 12px;
+      color: #eee;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+
+    .nav-buttons button:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .footer {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #bbb;
+      padding: 0 10px;
+      width: 100%;
+      max-width: 700px;
+      box-sizing: border-box;
+    }
+
+    .page-number {
+      font-style: italic;
+    }
+
+    .save-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #aaa;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .save-btn:hover {
+      color: #fff;
+      border-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="capture" class="container">
+    <div class="nav-buttons no-capture">
+      <button onclick="goTo('prev')">← Back</button>
+      <button onclick="goTo('cover')">⤒ Cover</button>
+      <button onclick="goTo('next')">Next →</button>
+    </div>
+
+    <div class="glass-card">
+      <div class="chapter-title"> Bab 2 — Aku Pernah Menjadi Seseorang Untukmu </div>
+      <div class="chapter-text">
+
+Aku masih mengingat caramu memanggil namaku, seolah hanya aku yang kamu tuju. Kamu tahu persis hal-hal kecil yang membuatku tersenyum, dan kamu selalu hadir tepat saat aku merasa dunia terlalu berat untuk kupikul sendiri.
+
+Saat itu, aku yakin aku berarti. Bahwa ada tempat khusus yang sengaja kamu sediakan untukku, di sela-sela kesibukanmu, dalam cara bicaramu, di antara kata-kata manismu yang kerap datang tiba-tiba.
+
+Aku tak meminta banyak. Hanya agar kamu tetap tinggal. Atau kalau pun kamu harus pergi, setidaknya pamitlah sebagai seseorang yang pernah menganggapku penting.
+
+Tapi yang kamu berikan bukan perpisahan, melainkan menghilang. Dan aku dibiarkan menebak-nebak apa salahku, apa kurangku, dan apa aku pernah benar-benar kamu cintai?
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <span class="copyright">⸻ ten of april</span>
+      <span class="page-number">page 7</span>
+      <button class="save-btn no-capture" onclick="downloadAsImage()">⤓ Save as JPEG</button>
+    </div>
+  </div>
+
+  <script>
+    function goTo(target) {
+      if (target === 'prev') window.location.href = 'page6.html';
+      if (target === 'cover') window.location.href = 'book2.html';
+      if (target === 'next') window.location.href = 'page8.html';
+    }
+
+    function downloadAsImage() {
+      const content = document.getElementById('capture');
+
+      const hiddenItems = document.querySelectorAll('.no-capture');
+      hiddenItems.forEach(el => el.style.visibility = 'hidden');
+
+      const originalBg = content.style.background;
+      const originalFilter = content.style.backdropFilter;
+      const originalWebkit = content.style.webkitBackdropFilter;
+
+      content.style.background = "#1a1a1a";
+      content.style.backdropFilter = "none";
+      content.style.webkitBackdropFilter = "none";
+
+      html2canvas(content, {
+        scale: 3,
+        useCORS: true
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'ten-of-april-page3.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+
+        content.style.background = originalBg;
+        content.style.backdropFilter = originalFilter;
+        content.style.webkitBackdropFilter = originalWebkit;
+      });
+    }
+  </script>
+</body>
+</html>
