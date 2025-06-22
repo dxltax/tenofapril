@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prologue — Am I Not Worthy?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="prologue2.css" />
+</head>
+<body>
+  <div id="capture" class="container">
+    <div class="nav-buttons">
+      <button onclick="goTo('prev')">← Back</button>
+      <button onclick="goTo('cover')">⤒ Cover</button>
+      <button onclick="goTo('next')">Next →</button>
+    </div>
+
+    <div class="glass-card prologue-card">
+      <h2 class="chapter-title highlight">Prolog: Hari Itu, 10 April</h2>
+      <p class="prologue-text">
+        bukan sekadar tanggal,<br>
+        tapi titik mula dari akhir yang terlalu cepat.<br>
+        10 april. hari di mana semuanya berubah.<br>
+        hari di mana aku sadar bahwa cinta tak selalu cukup.<br><br>
+
+        di hari itu, sesuatu dalam diriku pecah. bukan hanya hati, tapi cara aku melihat dunia, cara aku mempercayai seseorang, cara aku mencintai.<br>
+        dan sejak hari itu, aku terus menulis. tentang kehilangan, tentang kenapa yang tinggal hanya kenangan, dan tentang bagaimana hati belajar hidup tanpa harapan.<br><br>
+
+        ⸻ ten of april bukan tentang dia. ini tentangku, yang tetap bertahan meski rasanya ingin hilang.<br>
+        ini adalah awal.<br>
+        bukan dari cinta baru,<br>
+        tapi dari derita yang kutanggung hingga saat ini.<br><br>
+
+        — untuk semua hati yang juga patah, aku dengar kalian. mari pulih, pelan pelan.
+      </p>
+    </div>
+
+    <div class="footer">
+      <span class="copyright">⸻ ten of april</span>
+      <span class="page-number">page 1</span>
+      <button class="save-btn" onclick="downloadAsImage()">⤓ Save as JPEG</button>
+    </div>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script>
+    function goTo(target) {
+      if (target === 'prev') window.location.href = 'index.html';
+      if (target === 'cover') window.location.href = 'cover.html';
+      if (target === 'next') window.location.href = 'page2.html'; // ubah sesuai strukturmu
+    }
+
+    function downloadAsImage() {
+      const capture = document.getElementById("capture");
+      html2canvas(capture, { scale: 3 }).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "prologue_am_i_not_worthy.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 1.0);
+        link.click();
+      });
+    }
+  </script>
+</body>
+</html>
