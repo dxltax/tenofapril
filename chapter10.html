@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <h1 class="book-title"> Let Me Be the Leaf That Loved You </h1>
+
+    <div class="book-content center-text">
+
+     <p> I’ve spent too many dusks <br/>
+blaming myself, <br/>
+for all the branches I couldn't hold onto, <br/>
+for every promise <br/>
+that fell like early leaves in October. </p>
+
+<p> I hated myself <br/>
+for not being the season <br/>
+that could make you stay. <br/>
+But I would hate myself more <br/>
+if even my letting go <br/>
+failed to keep you warm <br/>
+through your coming cold.</p>
+
+<p> So promise me this—<br/>
+beneath the amber sky, <br/>
+where the wind listens <br/>
+but never speaks back…</p>
+
+<p> Promise you'll still bloom, <br/>
+even after my shade is gone. <br/>
+Promise you'll love your own skin <br/>
+more than you ever loved my touch. <br/>
+Promise you won’t kneel again <br/>
+for a love that doesn't stay through the fall. <br/>
+Promise your eyes won’t search <br/>
+for someone who’d vanish <br/>
+like the sun at 5 p.m. </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter9b.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="chapter10b.html">Next</a>
+    </div>
+
+    <div class="copyright"> ⸻ ten of april </div>
+    <div class="page-number">20</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page8.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
