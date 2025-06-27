@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Am I Not Worthy? – Page 4</title>
+  <title>Halaman Kutipan — Am I Not Worthy?</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Great+Vibes&display=swap" rel="stylesheet">
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   <style>
@@ -35,38 +35,39 @@
     .glass-card {
       width: 80vw;
       max-width: 700px;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 1; /* Bentuk square */
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-radius: 20px;
-      padding: 50px 40px;
+      padding: 60px 40px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.15);
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: auto;
       margin: 0 auto;
     }
 
-    .chapter-text {
-      font-size: 1rem;
+    .quote-text {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fbe4ee;
       line-height: 1.8;
-      color: #e6e6e6;
+      text-shadow: 0 0 8px rgba(255, 192, 203, 0.2);
       white-space: pre-line;
     }
 
     .nav-buttons {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      z-index: 9999;
-    }
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 9999;
+}
 
     .nav-buttons button {
       background: rgba(255, 255, 255, 0.08);
@@ -127,19 +128,8 @@
     </div>
 
     <div class="glass-card">
-      <div class="chapter-text">
-
-Sering kali aku meyakinkan diriku sendiri bahwa mencintaimu bukanlah kesalahan. Bahwa semua air mata yang jatuh setiap malam adalah harga dari perasaan yang tertanam, bukan kebodohan yang kubiarkan tumbuh subur.
-
-Tapi bagaimana aku bisa menyebut ini benar, jika setiap harinya aku merasa makin hilang dari diriku sendiri?
-
-Aku menjadi asing—bahkan untuk bayangan yang menatapku dari cermin. Aku tak lagi mengenal siapa aku tanpa kamu. Karena setiap inci hidupku telah kubangun di atas namamu. Dan ketika kamu pergi, semuanya runtuh tanpa sisa.
-
-Aku selalu ingin tahu, kelak, apa semua deritaku akan berakhir dengan aku yang lupa bagaimana caranya dicintai? Atau kamu yang akhirnya sadar, bahwa tidak ada yang bisa mencintaimu sekeras aku?
-
-Aku telah menyerahkan segala yang ada padaku untuk membuatmu tak pergi, tanpa syarat.  Bahkan saat aku hancur, yang kuinginkan bukan sembuh—tapi sebuah harapan di mana aku bisa memiliki dengan utuh.
-
-
+      <div class="quote-text">
+        “Aku melepasmu dengan rasa sakit luar biasa. Sesak yang kuderita setiap hari. Air mata yang kujatuhkan setiap malam. Maka berjanjilah… untuk hidup dengan bahagia.”
       </div>
     </div>
 
@@ -159,7 +149,8 @@ Aku telah menyerahkan segala yang ada padaku untuk membuatmu tak pergi, tanpa sy
 
     function downloadAsImage() {
       const content = document.getElementById('capture');
-      const hiddenItems = document.querySelectorAll('.no-capture');
+
+const hiddenItems = document.querySelectorAll('.no-capture');
       hiddenItems.forEach(el => el.style.visibility = 'hidden');
 
       const originalBg = content.style.background;
@@ -175,15 +166,13 @@ Aku telah menyerahkan segala yang ada padaku untuk membuatmu tak pergi, tanpa sy
         useCORS: true
       }).then(canvas => {
         const link = document.createElement('a');
-        link.download = 'ten-of-april-page5.jpg';
+        link.download = 'ten-of-april-page2.jpg';
         link.href = canvas.toDataURL('image/jpeg', 0.95);
         link.click();
 
         content.style.background = originalBg;
         content.style.backdropFilter = originalFilter;
         content.style.webkitBackdropFilter = originalWebkit;
-
-        hiddenItems.forEach(el => el.style.visibility = 'visible');
       });
     }
   </script>
