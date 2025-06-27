@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>The Season I Still Let In - Page 2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="chapter1.css" />
+
+ <style>
+    .highlight-name {
+      color: #8B0000;
+      font-weight: bold;
+      font-style: italic;
+      background-color: #fceee9;
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="book-page" id="content">
+    <div class="book-content center-text">
+
+      <p> I won’t chase you <br/>
+through the forest of what-ifs anymore. <br/>
+But I still love you—<br/>
+like the last golden leaf <br/>
+clinging to a branch, <br/>
+not to be owned, <br/>
+but to be remembered <br/>
+in silence. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> And yes…<br/>
+in my quiet selfishness, <br/>
+I still hope the trees whisper my name <br/>
+when the wind brushes your skin. </p>
+
+      <p class="leaf">🍂</p>
+
+      <p> Not to bring me back, <br/>
+but to remind you <br/>
+that once, <br/>
+you were loved by something <br/>
+that didn’t ask to last forever. </p>
+
+  <p class="leaf">🍂</p>
+
+      <p> If the red string between us <br/>
+was never meant to tie, <br/>
+then let us become <br/>
+two leaves from the same autumn—<br/>
+blown apart, <br/>
+but once trembling <br/>
+on the same breath of wind. </p>
+
+    </div>
+
+    <div class="nav-links">
+      <a href="chapter10.html">Back</a>
+      <a href="index.html" class="center-link">Cover</a>
+      <a href="locked.html">Next</a>
+    </div>
+
+    <div class="copyright"> ⸻ ten of april </div>
+    <div class="page-number">21</div>
+  </div>
+
+  <button id="save">Save as JPEG</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById('save').addEventListener('click', () => {
+      html2canvas(document.getElementById('content'), {
+        scale: 2
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'autumn-in-april-page9.jpg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
+    });
+  localStorage.setItem('lastPageRead', window.location.href);
+</script>
+
+</body>
+</html>
